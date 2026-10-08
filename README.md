@@ -11,7 +11,7 @@
 <p align="center"><b>An AI sound mixer — for macOS, Linux, ChromeOS and FreeBSD</b></p>
 
 <p align="center">
-  Version <b>1.0.0</b> · released 08 Oct 2026 ·
+  Version <b>1.0.1</b> · released 08 Oct 2026 ·
   <a href="https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest">Download</a> ·
   <a href="https://ipconfig.co.network/dial">Website</a> ·
   <a href="RELEASE-NOTES.md">Release notes</a>
@@ -81,15 +81,15 @@ On older macOS, Dial controls the master volume and devices.
 **Linux** (x86_64) — works with **PipeWire** and **PulseAudio**; Dial uses `pactl` / `parec` from
 `pulseaudio-utils` (the packages pull it in, and the installer adds it when `pactl` is missing).
 
-- Debian / Ubuntu / Mint: the installer uses the `.deb`, or download `Dial_1.0.0_amd64.deb` and
-  `sudo apt install ./Dial_1.0.0_amd64.deb`.
-- Fedora: `sudo dnf install ./Dial_1.0.0_x86_64.rpm` · openSUSE:
-  `sudo zypper install --allow-unsigned-rpm ./Dial_1.0.0_x86_64.rpm`.
-- Any distribution: `Dial_1.0.0_amd64.AppImage` — `chmod +x Dial_*.AppImage && ./Dial_*.AppImage`
+- Debian / Ubuntu / Mint: the installer uses the `.deb`, or download `Dial_1.0.1_amd64.deb` and
+  `sudo apt install ./Dial_1.0.1_amd64.deb`.
+- Fedora: `sudo dnf install ./Dial_1.0.1_x86_64.rpm` · openSUSE:
+  `sudo zypper install --allow-unsigned-rpm ./Dial_1.0.1_x86_64.rpm`.
+- Any distribution: `Dial_1.0.1_amd64.AppImage` — `chmod +x Dial_*.AppImage && ./Dial_*.AppImage`
   (needs `libfuse2`), or `… | bash -s -- --appimage` to install it to `~/.local/bin/dial`.
 
 **Linux ARM64** (Raspberry Pi 4/5 with a 64-bit OS, ARM laptops) — Debian / Ubuntu: the same one-liner, or
-download `Dial_1.0.0_arm64.deb` and `sudo apt install ./Dial_1.0.0_arm64.deb`.
+download `Dial_1.0.1_arm64.deb` and `sudo apt install ./Dial_1.0.1_arm64.deb`.
 ARM64 Linux has a `.deb` only — there is no ARM AppImage or `.rpm`.
 
 **ChromeOS** — Dial runs in the Linux development environment (a Debian container), on Intel/AMD and ARM Chromebooks:
@@ -97,8 +97,8 @@ ARM64 Linux has a `.deb` only — there is no ARM AppImage or `.rpm`.
 1. **Settings → Advanced → Developers → Linux development environment → Turn on** (a few minutes the first time).
 2. Open the **Terminal** app and run the one-liner above — it detects ChromeOS and picks the right package.
    Or by hand: `dpkg --print-architecture` says `amd64` (Intel/AMD) or `arm64` (ARM). Download
-   `Dial_1.0.0_amd64.deb` or `Dial_1.0.0_arm64.deb`, move it to **Linux files** and double-click it —
-   or run `sudo apt install ./Dial_1.0.0_<arch>.deb`.
+   `Dial_1.0.1_amd64.deb` or `Dial_1.0.1_arm64.deb`, move it to **Linux files** and double-click it —
+   or run `sudo apt install ./Dial_1.0.1_<arch>.deb`.
 3. Open Dial from the launcher (**Linux apps**). It mixes the sound of the apps in the Linux container.
 
 **FreeBSD** (amd64, FreeBSD 14 or later, with a desktop) — as root:
@@ -108,8 +108,8 @@ pkg install pulseaudio webkit2-gtk_41 bash curl
 curl -fsSL https://ipconfig.co.network/updates/dial/install.sh | bash
 ```
 
-Or download `Dial_1.0.0_freebsd_amd64.tar.gz` and, in the download folder,
-`tar -xzf Dial_1.0.0_freebsd_amd64.tar.gz && sudo sh install.sh` — it installs to `/usr/local/bin/dial`
+Or download `Dial_1.0.1_freebsd_amd64.tar.gz` and, in the download folder,
+`tar -xzf Dial_1.0.1_freebsd_amd64.tar.gz && sudo sh install.sh` — it installs to `/usr/local/bin/dial`
 with a menu entry and icon (`sh install.sh --uninstall` removes them). With PulseAudio running Dial mixes every
 app; without it, Dial controls the OSS master volume.
 
@@ -125,13 +125,13 @@ for your password, like any package install. On FreeBSD, run the installer again
 
 | System | CPU | Download | Updates itself |
 |---|---|---|---|
-| macOS 10.15+ (per-app audio: 14.4+) | Apple silicon | `Dial_1.0.0_aarch64.dmg` | yes |
-| macOS 10.15+ (per-app audio: 14.4+) | Intel | `Dial_1.0.0_x64.dmg` | yes |
-| Linux, any distribution | x86_64 | `Dial_1.0.0_amd64.AppImage` | yes |
-| Debian / Ubuntu / Mint | x86_64 · ARM64 | `Dial_1.0.0_amd64.deb` · `Dial_1.0.0_arm64.deb` | yes |
-| Fedora / openSUSE | x86_64 | `Dial_1.0.0_x86_64.rpm` | yes |
+| macOS 10.15+ (per-app audio: 14.4+) | Apple silicon | `Dial_1.0.1_aarch64.dmg` | yes |
+| macOS 10.15+ (per-app audio: 14.4+) | Intel | `Dial_1.0.1_x64.dmg` | yes |
+| Linux, any distribution | x86_64 | `Dial_1.0.1_amd64.AppImage` | yes |
+| Debian / Ubuntu / Mint | x86_64 · ARM64 | `Dial_1.0.1_amd64.deb` · `Dial_1.0.1_arm64.deb` | yes |
+| Fedora / openSUSE | x86_64 | `Dial_1.0.1_x86_64.rpm` | yes |
 | ChromeOS (Linux development environment) | x86_64 / ARM64 | the `.deb` for the Chromebook's CPU | yes |
-| FreeBSD 14+ | amd64 | `Dial_1.0.0_freebsd_amd64.tar.gz` | no — rerun the installer |
+| FreeBSD 14+ | amd64 | `Dial_1.0.1_freebsd_amd64.tar.gz` | no — rerun the installer |
 | Windows | — | not available yet | — |
 | Haiku | — | not possible | — |
 
