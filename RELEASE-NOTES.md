@@ -2,6 +2,37 @@
 
 Newest first. Downloads: https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest · https://ipconfig.co.network/dial
 
+## Dial 1.0.2 — 09 Oct 2026
+
+**Hotkeys, automation and smarter apps** — more of the best ideas from FineTune and Fader.
+
+- **Intel Macs build in the cloud:** the audio engine for Intel and Apple silicon Macs is now built on GitHub's own Macs, so releasing no longer depends on your Mac being able to build the Intel version.
+- **Global hotkeys:** turn the playing app up or down, mute it, change or mute the master volume, toggle the EQ, mute your microphone or open the mini mixer from anywhere — your own keys, set in Settings → Shortcuts. A small on-screen display shows what changed.
+- **Choose the volume step:** coarse (10 %), normal (5 %), fine (2 %) or extra-fine (1 %) for hotkeys and the arrow keys.
+- **Keyboard in the mini mixer:** ↑ ↓ to move, ← → for volume (⇧ for bigger steps), M to mute, Tab for microphones, Esc to close.
+- **Pin apps:** keep an app in the mixer even when it's silent, so its volume, EQ and output are ready before it plays.
+- **Ignore apps:** tell Dial to leave an app completely alone — it plays exactly as your system plays it.
+- **Loudness compensation (Pro):** at low volume Dial adds back the bass and treble your ears stop hearing, so quiet listening still sounds full.
+- **Menu bar icon styles:** knob, speaker (it follows your volume), wave or bars — and it flashes the new device when the output changes.
+- **Automate with links:** `dial://volume?v=40`, `dial://app?name=Spotify&volume=30`, `dial://preset?name=Rock` and more — from Terminal, Shortcuts, Raycast or any script. Examples to copy in Settings → Automation.
+- **Who's using the microphone:** see which apps are listening right now.
+- **Alert volume (macOS):** set the volume of system alerts and notifications.
+- **Device details (macOS):** sample rate (and change it), connection type and channels for every device.
+- **Popup size:** compact, comfortable or spacious.
+- **More colour and motion:** coloured keycaps and links, a sliding volume display, pin drops, and a dozen new sounds.
+- **Releases keep the demos:** a release from a folder without the demos and screenshots no longer removes them from GitHub.
+
+**A real menu bar mixer** — click Dial's icon and every device and app is one slider away.
+
+- **Menu bar mixer:** click the knob in the menu bar for a compact mixer: your outputs and microphones with their volumes, every playing app with a live level meter, mute, volume, boost (Pro), its own output (Pro) and quick EQ (Pro). Right-click the icon for the full menu. On Linux it opens from the tray menu as "Mini Mixer".
+- **Dial asks for the sound permission once:** updates and reinstalls no longer make macOS ask again for "System Audio Recording". Dial is now signed with one stable identity that macOS remembers (you may be asked one last time after this update).
+- **The Dock icon stays off:** with "Show in Dock" off, Dial never appears in the Dock again — not at launch, not when its window opens, not after an update.
+- **Microphone:** mute your mic from the menu bar, the mini mixer or Devices, set its level, and watch a live input meter.
+- **Bluetooth headphones:** paired headphones and speakers that aren't connected are listed — click Connect and the sound moves to them.
+- **Tidy the mixer:** in edit mode, drag outputs into your preferred order (the same order auto-switch uses) and hide devices or apps you never touch.
+- **More colour and motion:** peak-hold level meters, sliders that pulse with each app's sound, boost chevrons that light up one by one, and 15 new sounds — Bluetooth connecting, mic mute, boost steps and more. Every number, unit and bracket in every window is coloured, never pink.
+- **See it move:** the GitHub page now shows animated demos of every part of Dial.
+
 ## Dial 1.0.1 — 08 Oct 2026
 
 **Dial now lives in your menu bar** — plus a recorder, headphone correction and smarter outputs, ideas taken from the best open-source sound apps.
