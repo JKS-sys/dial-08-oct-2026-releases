@@ -12,30 +12,30 @@
       "url": "https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.3/Dial_x64.app.tar.gz"
     },
     "linux-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUSUVLMDNkb2V5SHhrN3d5SkluclI2YThIYmRiZEZLWUpydDUwWUx4eHdoRW1SNnNoTi8wbzZzeXdoSForcXNNclJncm1FUUJRZjNzL0ltSUxBNnFzeDYxajMzWWNwVkFRPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkxNTE4NTMzCWZpbGU6RGlhbF8xLjAuMl9hbWQ2NC5BcHBJbWFnZQl2ZXJzaW9uOjEuMC4yCmVmODliRnB4M0o3VkRRN1g3RUtxdmdBZ1l3SkYxeitBOWpYNzRnZVB5b1hYOWNaNUtFZFZ5VHhpWHdEbkpsbDU2Y243SnlCT2lqR1IrOHMyNWpOaEFRPT0K",
-      "url": "https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.2/Dial_1.0.2_amd64.AppImage"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUSUVLMDNkb2V5SDAyUW9mcFBmMkg1dmU4K3VBQUw2b1lVVVNqdllrbTRJMndwYytobHlWZWFpaVhaN0oyM0hPNHRocnlTczJNNWhNdWtsRjFqSllUcmdRakxXVUVlaVF3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkxNTI5NjgwCWZpbGU6RGlhbF8xLjAuM19hbWQ2NC5BcHBJbWFnZQl2ZXJzaW9uOjEuMC4zCmkrcjMyV0pxOHFYbFk1MGp1Z2w3MmJPU2ViNnFZeHR2LytWTFpFQzB3WkFCM214K1I2TzMwb21PekFCVjVIN2kralA3SkhCQWdWUDRFT0hmVVBtUURBPT0K",
+      "url": "https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.3/Dial_1.0.3_amd64.AppImage"
     },
     "linux-x86_64-deb": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUSUVLMDNkb2V5SDh1MjVPbWZHZWV6NTA3cVl1ZWxOdVlpLzlYR3ozNTNIN0s5eENkWXMwUGtWeVlIOEgxWDBNdVp4blVDVzlXVXFtd0llQmJMQmVPZjl4c0hHdkZyQXdJPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkxNTE4NTMzCWZpbGU6RGlhbF8xLjAuMl9hbWQ2NC5kZWIJdmVyc2lvbjoxLjAuMgpZUkI0bHY4aWVDRytEOEU3RllUYW90QXgvUkI0YmRUNE9mN3JENUVvc1F6YjBaOXZOQ3pvajlyMU1oc0dHb21ML25mZFc0d1Vqek5jYTVSM1RmVjZDQT09Cg==",
-      "url": "https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.2/Dial_1.0.2_amd64.deb"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUSUVLMDNkb2V5SDJmM1Q5dzZXZXpjY0U4YytlMnpPbUk4T3J1LzdTMXcybTFlb2lVdklmUEdUdlVsYkxHTzRES2lzT3RKdVdPRy92TnJpTWJDY3BUK0JVM3ZuWXRSMFFnPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkxNTI5NjgwCWZpbGU6RGlhbF8xLjAuM19hbWQ2NC5kZWIJdmVyc2lvbjoxLjAuMwpXa2Rjblp5enpCRVZKK2wvU2RtMHBSa240ZitEVjNIRDNsOGVEem0zcHFzMnU1cVNsTEY5M0hYSmFJcHNmTExPUVMxTk5OejBUSjk1QTdwOU5wbG1DZz09Cg==",
+      "url": "https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.3/Dial_1.0.3_amd64.deb"
     },
     "linux-aarch64-deb": {
       "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUSUVLMDNkb2V5SDVoRUpEKzl1VnBlckVhR09tSzNnYVVkcjFsZEIxa2FiQUdvTm1KSDEyQ3lWeVFTK0UxNEk3RlBmQkVLb09KRmNqNGRDT3BBbG5tL0tLM3F2ai8wRmdFPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkxNDc0OTAxCWZpbGU6RGlhbF8xLjAuMF9hcm02NC5kZWIJdmVyc2lvbjoxLjAuMAowUWczVEtZQkxKU2JzNWptZUJMR0I3MXBqNGYza3AxdFJRMlQ4dzBLTVIwbVpjSlI0U296ZGVpZHExSDNzOU9kbFBkOHVDdGQ1dVB0Skpvb1BvRjdBQT09Cg==",
       "url": "https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.0/Dial_1.0.0_arm64.deb"
     },
     "linux-x86_64-rpm": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUSUVLMDNkb2V5SDYzMTd1WG5Kb2RuZjZHMENpWWl1dFFkNVRkYTdnZkJBaUk5dzRrbmVCL0grMis0em42WWViWmkyZkRIaUNwMG9WZUFFNVBZdFlSRlk5RXhPcC9tNkFnPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkxNTE4NTMzCWZpbGU6RGlhbC0xLjAuMi0xLng4Nl82NC5ycG0JdmVyc2lvbjoxLjAuMgo5S21oYjdmU0NUblZaNGdnOE0wOEY5ajArVml0Vnh5Q3ZRak4wYytwRHhmRkJLUFBKY0xwdzBJOVFQbUxFcUdvLzllZUplc1FpVjI2bVg0dDNiY1BCUT09Cg==",
-      "url": "https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.2/Dial_1.0.2_x86_64.rpm"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUSUVLMDNkb2V5SHc0VUJmbkV0Y0hDYmg2dEJzbklhUFlDQlVWYnJsOVR4Vk1EbWdTU1J5VFRJZHNjd004QlVvWUlZRkVpK1lvOGRUd0x2RDNpaCt5SXVFN2JJcU9xeHdRPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkxNTI5NjgwCWZpbGU6RGlhbC0xLjAuMy0xLng4Nl82NC5ycG0JdmVyc2lvbjoxLjAuMwpkaE5hMG80dUNGcDVuSGVHRFF3MG94VC9HbkRLNW11UUdzVE43cm9hNmFYZWhDbkRxWkwwZnpUQWJSQlM4aUpHV29kNGNoY0cwSjZtaGZsK2RzbkxCZz09Cg==",
+      "url": "https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.3/Dial_1.0.3_x86_64.rpm"
     }
   },
   "downloads": {
     "mac_arm": "Dial_1.0.3_aarch64.dmg",
     "mac_intel": "Dial_1.0.3_x64.dmg",
-    "appimage": "Dial_1.0.2_amd64.AppImage",
-    "deb": "Dial_1.0.2_amd64.deb",
+    "appimage": "Dial_1.0.3_amd64.AppImage",
+    "deb": "Dial_1.0.3_amd64.deb",
     "deb_arm": "Dial_1.0.0_arm64.deb",
-    "rpm": "Dial_1.0.2_x86_64.rpm",
-    "chromeos": "Dial_1.0.2_amd64.deb",
+    "rpm": "Dial_1.0.3_x86_64.rpm",
+    "chromeos": "Dial_1.0.3_amd64.deb",
     "chromeos_arm": "Dial_1.0.0_arm64.deb"
   }
 }
