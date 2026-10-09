@@ -2,6 +2,13 @@
 
 Newest first. Downloads: https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest · https://ipconfig.co.network/dial
 
+## Dial 1.0.3 — 09 Oct 2026
+
+- **Quiet start at login:** when Dial opens at login it shows only its menu bar icon — no window, no Dock icon, no splash sound — until you open it. This also works for Login Items added in System Settings, and the login entry is refreshed at every launch, so it still works after you move Dial.
+- **Audio enhancers (Pro):** clarity, dialogue boost, bass enhancer and air, plus a harmonic exciter and punch on macOS. They only ever add, and a warmth guard keeps the low mids full when you boost the top.
+- **Echo (Pro):** a delay with mix and time controls, and feedback on macOS. On Linux you get a single repeat.
+- **Auto-restore on reconnect (Pro):** when headphones or another output comes back, every app you had sent to it goes back to it with its own volume and EQ, and the device's own EQ returns too.
+
 ## Dial 1.0.2 — 09 Oct 2026
 
 **Hotkeys, automation and smarter apps** — more of the best ideas from FineTune and Fader.
