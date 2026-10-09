@@ -11,7 +11,7 @@
 <p align="center"><b>An AI sound mixer — for macOS, Linux, ChromeOS and FreeBSD</b></p>
 
 <p align="center">
-  Version <b>1.0.2</b> · released 09 Oct 2026 ·
+  Version <b>1.0.3</b> · released 09 Oct 2026 ·
   <a href="https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest">Download</a> ·
   <a href="https://ipconfig.co.network/dial">Website</a> ·
   <a href="RELEASE-NOTES.md">Release notes</a>
@@ -60,6 +60,16 @@ nine hues.
 
 **Sound fixer** — stretch the stereo width (the speakers slide apart), add a room or a hall of reverb (the rings bounce off
 the walls) and tape-style warmth (the tube glows) — for headphones that sound flat or harsh.
+
+<p align="center"><img src="demos/enhancers.gif" width="720" alt="The Enhance card: switching the enhancers off, tapping Crisp, dragging Bass and Voice up while the studio rack lights module by module and the amber warmth zone stays untouched, flipping the warmth guard, picking Studio, then turning on Echo and watching the dots bounce at the echo time"></p>
+
+**Enhancers and echo** — six studio-style enhancers, each in its own colour: *Clarity*, *Voice* (a dialogue boost),
+*Bass*, *Air*, an *Exciter* and *Punch*. They only ever add — the warm low-mids (120–500 Hz, the amber zone on the live
+curve) are never cut, and the *warmth guard* balances a bright top with a gentle 250 Hz lift instead of thinning the
+sound. Sliders sparkle more the more you add, a little studio rack lights a module for every enhancer that's on, and
+each one has its own sound (a clarity ping, a bass thump, an air whoosh, a punch snap). One tap on *Crisp*, *Dialogue*,
+*Deep bass*, *Studio* or *Gentle* sets them all. *Echo* adds repeats that bounce back — the dots hop at exactly the
+echo time — and its sound really echoes.
 
 <p align="center"><img src="demos/recorder.gif" width="720" alt="The recorder: starting a recording of system audio, the timer and waveform running, then stopping and the file appearing in the list"></p>
 
@@ -119,13 +129,18 @@ Settings → Automation lists them all with Copy and Try buttons, and builds you
 | 🔊 | **Master volume and mute**, output and input device switching, per-device volume | ✓ | ✓ |
 | 🎚️ | **Per-app volume 0–100 % and mute**, for every app — remembered per app | ✓ | ✓ |
 | 🚀 | **Per-app boost above 100 %**, up to 400 % | — | ★ |
-| 🎛️ | **10-band graphic equaliser** with 14 built-in presets (Bass Boost, Vocal / Podcast, Late Night…) | ✓ | ✓ |
+| 🎛️ | **10-band graphic equaliser** with 24 built-in presets in 5 colour-coded groups — Music, Voice, Movies & TV, Gaming, Fixes (Footsteps, Dialogue lift, Laptop speakers…) | ✓ | ✓ |
+| 📄 | **EqualizerAPO / AutoEQ files** — import ParametricEQ.txt / config.txt (Preamp, Filter lines, GraphicEQ fitted to the 10 bands) with a colour-coded preview; export the current EQ as ParametricEQ.txt | export ✓ | ★ import |
 | 📈 | **Parametric equaliser** — up to 16 bands, type / frequency / gain / Q | — | ★ |
 | 💾 | **Custom presets** — save, rename, delete, import and export as JSON | 1 slot | ★ unlimited |
-| 🎧 | **Per-app EQ** — one app gets its own curve (macOS) | — | ★ |
+| 🎧 | **Per-app EQ** — one app gets its own curve (macOS), with presets saved for that app | — | ★ |
 | 🔀 | **Per-app output device** — one app to headphones, another to speakers | — | ★ |
 | 🩺 | **Sound fixer:** balance and preamp | ✓ | ✓ |
 | 🛡️ | **Sound fixer:** mono, left/right swap, limiter | — | ★ |
+| ✨ | **Enhancers** — clarity, voice (dialogue boost), bass, air, exciter and punch (macOS); five one-tap presets; the warmth guard never cuts 120–500 Hz | — | ★ |
+| 🔁 | **Echo** — mix, time (40–1200 ms) and feedback (a single repeat on Linux) | — | ★ |
+| 🔌 | **Auto-restore on reconnect** — when your headphones come back, the apps that were on them move back, with their volume, EQ and effects | ✓ | ✓ |
+| 🌙 | **Starts hidden at login** — only the menu bar icon: no window, no Dock icon, not a sound until you open it | ✓ | ✓ |
 | 🌈 | **Spectrum visualiser** — bars, ring, wave, mirror | ✓ | ✓ |
 | 🧭 | **Menu bar popover** — every output, microphone and app at a glance, live level meters, Donate and Quit (FineTune style) | ✓ | ✓ |
 | 🎧 | **Bluetooth headphones** — connect / disconnect paired headphones and speakers from Dial | ✓ | ✓ |
@@ -148,6 +163,8 @@ Each screenshot follows your theme (dark or light).
 | <picture><source media="(prefers-color-scheme: dark)" srcset="screenshots/mixer-dark.png"><img src="screenshots/mixer-light.png" alt="Dial mixer"></picture> <br> *Mixer — a volume, mute and output for every app* | <picture><source media="(prefers-color-scheme: dark)" srcset="screenshots/eq-dark.png"><img src="screenshots/eq-light.png" alt="Dial equaliser"></picture> <br> *Equaliser — graphic or parametric, with presets* |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="screenshots/devices-dark.png"><img src="screenshots/devices-light.png" alt="Dial devices"></picture> <br> *Devices — speakers, headphones, Bluetooth and the microphone* | <picture><source media="(prefers-color-scheme: dark)" srcset="screenshots/visualizer-dark.png"><img src="screenshots/visualizer-light.png" alt="Dial visualiser"></picture> <br> *Visualiser — bars, ring, wave and mirror* |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="screenshots/fixer-dark.png"><img src="screenshots/fixer-light.png" alt="Dial sound fixer"></picture> <br> *Sound fixer — balance, preamp, mono, swap, limiter* | <picture><source media="(prefers-color-scheme: dark)" srcset="screenshots/ai-chat-dark.png"><img src="screenshots/ai-chat-light.png" alt="Dial AI"></picture> <br> *Dial AI — say what you want to hear* |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="screenshots/fixer-enhance-dark.png"><img src="screenshots/fixer-enhance-light.png" alt="Dial enhancers"></picture> <br> *Enhance — six enhancers, the studio rack and the amber warmth zone* | <picture><source media="(prefers-color-scheme: dark)" srcset="screenshots/eq-import-dark.png"><img src="screenshots/eq-import-light.png" alt="Dial EqualizerAPO / AutoEQ import"></picture> <br> *EqualizerAPO / AutoEQ import — the file, colour-coded* |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="screenshots/eq-presets-categories-dark.png"><img src="screenshots/eq-presets-categories-light.png" alt="Dial preset categories"></picture> <br> *24 presets in 5 colour-coded groups* | <picture><source media="(prefers-color-scheme: dark)" srcset="screenshots/fixer-echo-dark.png"><img src="screenshots/fixer-echo-light.png" alt="Dial echo"></picture> <br> *Echo — the dots bounce at the echo time* |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="screenshots/popover-dark.png"><img src="screenshots/popover-light.png" width="420" alt="Dial menu bar popover"></picture> <br> *Menu bar popover — devices, Bluetooth and apps* | <picture><source media="(prefers-color-scheme: dark)" srcset="screenshots/popover-input-dark.png"><img src="screenshots/popover-input-light.png" width="420" alt="Dial popover microphone tab"></picture> <br> *Microphone tab — live level and mute* |
 
 ## Install
@@ -173,15 +190,15 @@ On older macOS, Dial controls the master volume and devices.
 **Linux** (x86_64) — works with **PipeWire** and **PulseAudio**; Dial uses `pactl` / `parec` from
 `pulseaudio-utils` (the packages pull it in, and the installer adds it when `pactl` is missing).
 
-- Debian / Ubuntu / Mint: the installer uses the `.deb`, or download `Dial_1.0.2_amd64.deb` and
-  `sudo apt install ./Dial_1.0.2_amd64.deb`.
-- Fedora: `sudo dnf install ./Dial_1.0.2_x86_64.rpm` · openSUSE:
-  `sudo zypper install --allow-unsigned-rpm ./Dial_1.0.2_x86_64.rpm`.
-- Any distribution: `Dial_1.0.2_amd64.AppImage` — `chmod +x Dial_*.AppImage && ./Dial_*.AppImage`
+- Debian / Ubuntu / Mint: the installer uses the `.deb`, or download `Dial_1.0.3_amd64.deb` and
+  `sudo apt install ./Dial_1.0.3_amd64.deb`.
+- Fedora: `sudo dnf install ./Dial_1.0.3_x86_64.rpm` · openSUSE:
+  `sudo zypper install --allow-unsigned-rpm ./Dial_1.0.3_x86_64.rpm`.
+- Any distribution: `Dial_1.0.3_amd64.AppImage` — `chmod +x Dial_*.AppImage && ./Dial_*.AppImage`
   (needs `libfuse2`), or `… | bash -s -- --appimage` to install it to `~/.local/bin/dial`.
 
 **Linux ARM64** (Raspberry Pi 4/5 with a 64-bit OS, ARM laptops) — Debian / Ubuntu: the same one-liner, or
-download `Dial_1.0.2_arm64.deb` and `sudo apt install ./Dial_1.0.2_arm64.deb`.
+download `Dial_1.0.3_arm64.deb` and `sudo apt install ./Dial_1.0.3_arm64.deb`.
 ARM64 Linux has a `.deb` only — there is no ARM AppImage or `.rpm`.
 
 **ChromeOS** — Dial runs in the Linux development environment (a Debian container), on Intel/AMD and ARM Chromebooks:
@@ -189,8 +206,8 @@ ARM64 Linux has a `.deb` only — there is no ARM AppImage or `.rpm`.
 1. **Settings → Advanced → Developers → Linux development environment → Turn on** (a few minutes the first time).
 2. Open the **Terminal** app and run the one-liner above — it detects ChromeOS and picks the right package.
    Or by hand: `dpkg --print-architecture` says `amd64` (Intel/AMD) or `arm64` (ARM). Download
-   `Dial_1.0.2_amd64.deb` or `Dial_1.0.2_arm64.deb`, move it to **Linux files** and double-click it —
-   or run `sudo apt install ./Dial_1.0.2_<arch>.deb`.
+   `Dial_1.0.3_amd64.deb` or `Dial_1.0.3_arm64.deb`, move it to **Linux files** and double-click it —
+   or run `sudo apt install ./Dial_1.0.3_<arch>.deb`.
 3. Open Dial from the launcher (**Linux apps**). It mixes the sound of the apps in the Linux container.
 
 **FreeBSD** (amd64, FreeBSD 14 or later, with a desktop) — as root:
@@ -200,8 +217,8 @@ pkg install pulseaudio webkit2-gtk_41 bash curl
 curl -fsSL https://ipconfig.co.network/updates/dial/install.sh | bash
 ```
 
-Or download `Dial_1.0.2_freebsd_amd64.tar.gz` and, in the download folder,
-`tar -xzf Dial_1.0.2_freebsd_amd64.tar.gz && sudo sh install.sh` — it installs to `/usr/local/bin/dial`
+Or download `Dial_1.0.3_freebsd_amd64.tar.gz` and, in the download folder,
+`tar -xzf Dial_1.0.3_freebsd_amd64.tar.gz && sudo sh install.sh` — it installs to `/usr/local/bin/dial`
 with a menu entry and icon (`sh install.sh --uninstall` removes them). With PulseAudio running Dial mixes every
 app; without it, Dial controls the OSS master volume.
 
@@ -217,13 +234,13 @@ for your password, like any package install. On FreeBSD, run the installer again
 
 | System | CPU | Download | Updates itself |
 |---|---|---|---|
-| macOS 10.15+ (per-app audio: 14.4+) | Apple silicon | `Dial_1.0.2_aarch64.dmg` | yes |
-| macOS 10.15+ (per-app audio: 14.4+) | Intel | `Dial_1.0.2_x64.dmg` | yes |
-| Linux, any distribution | x86_64 | `Dial_1.0.2_amd64.AppImage` | yes |
-| Debian / Ubuntu / Mint | x86_64 · ARM64 | `Dial_1.0.2_amd64.deb` · `Dial_1.0.2_arm64.deb` | yes |
-| Fedora / openSUSE | x86_64 | `Dial_1.0.2_x86_64.rpm` | yes |
+| macOS 10.15+ (per-app audio: 14.4+) | Apple silicon | `Dial_1.0.3_aarch64.dmg` | yes |
+| macOS 10.15+ (per-app audio: 14.4+) | Intel | `Dial_1.0.3_x64.dmg` | yes |
+| Linux, any distribution | x86_64 | `Dial_1.0.3_amd64.AppImage` | yes |
+| Debian / Ubuntu / Mint | x86_64 · ARM64 | `Dial_1.0.3_amd64.deb` · `Dial_1.0.3_arm64.deb` | yes |
+| Fedora / openSUSE | x86_64 | `Dial_1.0.3_x86_64.rpm` | yes |
 | ChromeOS (Linux development environment) | x86_64 / ARM64 | the `.deb` for the Chromebook's CPU | yes |
-| FreeBSD 14+ | amd64 | `Dial_1.0.2_freebsd_amd64.tar.gz` | no — rerun the installer |
+| FreeBSD 14+ | amd64 | `Dial_1.0.3_freebsd_amd64.tar.gz` | no — rerun the installer |
 | Windows | — | not available yet | — |
 | Haiku | — | not possible | — |
 
@@ -232,7 +249,7 @@ for your password, like any package install. On FreeBSD, run the installer again
 | Free | Pro monthly | Pro yearly |
 |---|---|---|
 | ₹0 | **₹20 / month** | **₹220 / year** |
-| Per-app volume, the graphic EQ and presets, devices, balance and preamp, the visualiser and all the AI | Boost to 400 %, parametric and per-app EQ, per-app outputs, mono / swap / limiter, unlimited presets | Everything in Pro — two months cheaper |
+| Per-app volume, the graphic EQ and presets, devices, balance and preamp, the visualiser and all the AI | Boost to 400 %, parametric and per-app EQ, per-app outputs, mono / swap / limiter, enhancers and echo, EQ file import, unlimited presets | Everything in Pro — two months cheaper |
 
 After paying you get an activation code at once, and Pro turns on by itself if you bought from inside Dial.
 
