@@ -2,6 +2,21 @@
 
 Newest first. Downloads: https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest · https://ipconfig.co.network/dial
 
+## Dial 1.0.4 — 12 Oct 2026
+
+**Screen Studio, a system monitor, an app tamer and thermals** — Dial now looks after your whole Mac, not only its sound.
+
+- **Screen Studio:** record your screen with your microphone and a floating camera bubble for tutorials and YouTube videos, up to 30 minutes (5 minutes free). Watch your recordings inside Dial, trim them, rename them, show them in Finder or delete them.
+- **Sound recordings:** every recording now has Open in Finder (Show in Files on Linux), and Copy path really copies the path.
+- **Monitor:** CPU per core, memory and pressure, disks, network, battery and GPU with live charts, the busiest apps, and an optional readout next to the menu bar icon.
+- **App Tamer:** slow down or pause apps while you're not using them, move busy background work onto the efficiency cores, and get a warning when something hogs the CPU. There's also a Time Machine speed-up (2 apps free, unlimited with Pro).
+- **Thermals:** every temperature sensor with its highest reading, fan speeds, fan control (Auto, Manual or Max) and Auto Boost rules (Pro). It also shows hardware health and the last shutdown cause, and offers temperature alerts by notification and email plus CSV logs.
+- **Closing the last window quits Dial.** If you'd rather keep Dial in the menu bar, turn on Settings → Keep running in the menu bar.
+- **Right-click everywhere:** many more right-click options in the app, a fuller Dock menu, and Open With → Dial plus Quick Actions in Finder. On Linux you get actions in Files, Dolphin and Nemo.
+- **Fits any window size:** no overlapping and no page scrolling, down to a small 480 × 360 window.
+- More colour (still no pink), smoother vector animations and new sounds throughout.
+- Apple Developer signing and Mac App Store packaging (`npm run apple-sign`) for when the Apple Developer Program is joined.
+
 ## Dial 1.0.3 — 09 Oct 2026
 
 - **Quiet start at login:** when Dial opens at login it shows only its menu bar icon — no window, no Dock icon, no splash sound — until you open it. This also works for Login Items added in System Settings, and the login entry is refreshed at every launch, so it still works after you move Dial.
