@@ -11,7 +11,7 @@
 <p align="center"><b>An AI sound mixer — for macOS, Linux, ChromeOS and FreeBSD</b></p>
 
 <p align="center">
-  Version <b>1.0.3</b> · released 09 Oct 2026 ·
+  Version <b>1.0.4</b> · released 12 Oct 2026 ·
   <a href="https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest">Download</a> ·
   <a href="https://ipconfig.co.network/dial">Website</a> ·
   <a href="RELEASE-NOTES.md">Release notes</a>
@@ -33,6 +33,30 @@ A native desktop app of a few megabytes.
 
 **Startup** — the Dial knob draws itself: nine rainbow ticks pop in one by one, the gold pointer swings to rest with a click,
 and *An AI sound mixer* types out. Click or press any key to skip it, or turn it off in Settings.
+
+<p align="center"><a href="demos/screen-studio.mp4"><img src="demos/screen-studio.gif" width="760" alt="Screen Studio: picking clicks, a 3-2-1 countdown on the record button, recording, stopping, the new video appearing in the library, then opening it in the player and its trim timeline"></a></p>
+
+**Screen Studio** — record your screen with your microphone and a floating camera bubble for tutorials and YouTube videos, up to 30 minutes. A countdown and a sweeping ring mark the time. The library plays every video inside Dial, and you can trim, rename, show in Finder or delete it. <sub>([full-quality MP4](demos/screen-studio.mp4))</sub>
+
+<p align="center"><a href="demos/monitor.mp4"><img src="demos/monitor.gif" width="760" alt="The system monitor: live CPU per-core bars, the network, memory, GPU, disks, battery and sensors charts filling in, choosing what shows in the menu bar and revealing the public IP"></a></p>
+
+**Monitor** — CPU (per core, user and system, load), memory and pressure, every disk, the network (up and down, local and public IP), the battery and GPU, each with a live 2-minute chart and the busiest apps. Pick one to show next to the menu bar icon. <sub>([full-quality MP4](demos/monitor.mp4))</sub>
+
+<p align="center"><a href="demos/tamer.mp4"><img src="demos/tamer.gif" width="760" alt="App Tamer: applying the suggested rules, stopping Chrome while it is in the background, moving Photoshop onto the efficiency cores and slowing Firefox to a CPU limit"></a></p>
+
+**App Tamer** — slow an app to a CPU limit, pause it while it's in the background, or move it onto the efficiency cores. It resumes the moment you switch back. Dial also warns you when something hogs the CPU, and the gauge shows how much CPU you saved. <sub>([full-quality MP4](demos/tamer.mp4))</sub>
+
+<p align="center"><a href="demos/thermals.mp4"><img src="demos/thermals.gif" width="760" alt="Thermals: every sensor group with its maximum, fans spinning faster when set to Max, manual fan speed, hardware health, alerts, and switching to Fahrenheit"></a></p>
+
+**Thermals** — every temperature sensor with its highest reading, fans that spin as fast as the real ones, and fan control: Auto, Manual or Max. Auto Boost rules, hardware health (fans, sensors, battery and the last shutdown), notification and email alerts, and CSV logs. <sub>([full-quality MP4](demos/thermals.mp4))</sub>
+
+<p align="center"><a href="demos/right-click.mp4"><img src="demos/right-click.gif" width="760" alt="Right-click menus: an app row's menu with mute, solo, boost, outputs, pin, ignore and per-app EQ; the window menu with every view, presets, recording and settings; and a screen recording's menu"></a></p>
+
+**Right-click everywhere** — every app, device, preset, recording and video has its own menu, and so does the window itself. The Dock icon has a menu too, and Finder gets *Open With → Dial* plus Quick Actions. On Linux, Files, Dolphin and Nemo get the same actions. <sub>([full-quality MP4](demos/right-click.mp4))</sub>
+
+<p align="center"><a href="demos/resize.mp4"><img src="demos/resize.gif" width="760" alt="The Dial window shrinking from 1200 × 780 to 480 × 360 and back: the sidebar turns into an icon rail, then a tab strip, with nothing overlapping and no scrolling"></a></p>
+
+**Fits any size** — make the window as small as 480 × 360 and nothing overlaps or needs scrolling. The sidebar becomes an icon rail, then a tab strip. <sub>([full-quality MP4](demos/resize.mp4))</sub>
 
 <p align="center"><img src="demos/popover.gif" width="720" alt="The menu bar popover: opening it, dragging Spotify's volume, boosting Safari to 400 %, sending Zoom to another output, switching the output and the live microphone level"></p>
 
@@ -150,9 +174,17 @@ Settings → Automation lists them all with Copy and Try buttons, and builds you
 | 🔗 | **`dial://` automation links** — Terminal, Shortcuts, Raycast, scripts | ✓ | ✓ |
 | 👂 | **Loudness compensation** — bass and treble back at low volume | — | ★ |
 | 🎛️ | **Menu bar icon styles** (knob, speaker, wave, bars) and popover density; full keyboard control of the mini mixer | ✓ | ✓ |
+| 🎬 | **Screen Studio** — screen + microphone + floating camera bubble, a library player, trim, rename, delete | 5 min | ★ 30 min |
+| 📊 | **Monitor** — CPU per core, memory, disks, network, battery, GPU, sensors, top apps; stats in the menu bar | ✓ | ✓ |
+| 🐢 | **App Tamer** — slow, pause in the background or move to efficiency cores; CPU-hog alerts; Time Machine boost | 2 apps | ★ unlimited |
+| 🌡️ | **Thermals** — every sensor with its max, fan speeds, hardware health, alerts by notification and email, CSV logs | ✓ | ✓ |
+| 🌀 | **Fan control** — Auto, Manual, Max and Auto Boost rules | — | ★ |
+| 🖱️ | **Right-click menus** in every view, the Dock menu, Finder *Open With* and Quick Actions (Files / Dolphin / Nemo on Linux) | ✓ | ✓ |
 | ✨ | **AI:** Dial AI (free, built in), offline quick fixes, GitHub Copilot CLI, GitHub Models, every local server (Ollama, LM Studio, Jan, llama.cpp, GPT4All, KoboldCpp, vLLM, text-generation-webui, Msty, AnythingLLM) and any OpenAI-compatible service | ✓ | ✓ |
 
-Keyboard: Mixer ⌘1 · Equaliser ⌘2 · Devices ⌘3 · Visualiser ⌘4 · Sound Fixer ⌘5 · AI panel ⌘J.
+Keyboard: Mixer ⌘1 · Equaliser ⌘2 · Devices ⌘3 · Visualiser ⌘4 · Sound Fixer ⌘5 · Recorder ⌘6 · Screen Studio ⌘7 · Monitor ⌘8 · App Tamer ⌘9 · Thermals ⇧⌘T · AI panel ⌘J.
+
+Closing the last Dial window quits Dial — or turn on *Keep Dial in the menu bar* in Settings → Window & Finder.
 
 ## Screenshots
 
@@ -160,6 +192,8 @@ Each screenshot follows your theme (dark or light).
 
 | | |
 |---|---|
+| <picture><source media="(prefers-color-scheme: dark)" srcset="screenshots/screen-dark.png"><img src="screenshots/screen-light.png" alt="Dial Screen Studio"></picture> <br> *Screen Studio — screen, camera and mic, with the library* | <picture><source media="(prefers-color-scheme: dark)" srcset="screenshots/monitor-dark.png"><img src="screenshots/monitor-light.png" alt="Dial system monitor"></picture> <br> *Monitor — CPU, memory, disks, network, battery, sensors* |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="screenshots/tamer-dark.png"><img src="screenshots/tamer-light.png" alt="Dial App Tamer"></picture> <br> *App Tamer — slow, stop or move apps to efficiency cores* | <picture><source media="(prefers-color-scheme: dark)" srcset="screenshots/thermals-dark.png"><img src="screenshots/thermals-light.png" alt="Dial thermals"></picture> <br> *Thermals — sensors, fans, Auto Boost, health* |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="screenshots/mixer-dark.png"><img src="screenshots/mixer-light.png" alt="Dial mixer"></picture> <br> *Mixer — a volume, mute and output for every app* | <picture><source media="(prefers-color-scheme: dark)" srcset="screenshots/eq-dark.png"><img src="screenshots/eq-light.png" alt="Dial equaliser"></picture> <br> *Equaliser — graphic or parametric, with presets* |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="screenshots/devices-dark.png"><img src="screenshots/devices-light.png" alt="Dial devices"></picture> <br> *Devices — speakers, headphones, Bluetooth and the microphone* | <picture><source media="(prefers-color-scheme: dark)" srcset="screenshots/visualizer-dark.png"><img src="screenshots/visualizer-light.png" alt="Dial visualiser"></picture> <br> *Visualiser — bars, ring, wave and mirror* |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="screenshots/fixer-dark.png"><img src="screenshots/fixer-light.png" alt="Dial sound fixer"></picture> <br> *Sound fixer — balance, preamp, mono, swap, limiter* | <picture><source media="(prefers-color-scheme: dark)" srcset="screenshots/ai-chat-dark.png"><img src="screenshots/ai-chat-light.png" alt="Dial AI"></picture> <br> *Dial AI — say what you want to hear* |
@@ -190,15 +224,15 @@ On older macOS, Dial controls the master volume and devices.
 **Linux** (x86_64) — works with **PipeWire** and **PulseAudio**; Dial uses `pactl` / `parec` from
 `pulseaudio-utils` (the packages pull it in, and the installer adds it when `pactl` is missing).
 
-- Debian / Ubuntu / Mint: the installer uses the `.deb`, or download `Dial_1.0.3_amd64.deb` and
-  `sudo apt install ./Dial_1.0.3_amd64.deb`.
-- Fedora: `sudo dnf install ./Dial_1.0.3_x86_64.rpm` · openSUSE:
-  `sudo zypper install --allow-unsigned-rpm ./Dial_1.0.3_x86_64.rpm`.
-- Any distribution: `Dial_1.0.3_amd64.AppImage` — `chmod +x Dial_*.AppImage && ./Dial_*.AppImage`
+- Debian / Ubuntu / Mint: the installer uses the `.deb`, or download `Dial_1.0.4_amd64.deb` and
+  `sudo apt install ./Dial_1.0.4_amd64.deb`.
+- Fedora: `sudo dnf install ./Dial_1.0.4_x86_64.rpm` · openSUSE:
+  `sudo zypper install --allow-unsigned-rpm ./Dial_1.0.4_x86_64.rpm`.
+- Any distribution: `Dial_1.0.4_amd64.AppImage` — `chmod +x Dial_*.AppImage && ./Dial_*.AppImage`
   (needs `libfuse2`), or `… | bash -s -- --appimage` to install it to `~/.local/bin/dial`.
 
 **Linux ARM64** (Raspberry Pi 4/5 with a 64-bit OS, ARM laptops) — Debian / Ubuntu: the same one-liner, or
-download `Dial_1.0.3_arm64.deb` and `sudo apt install ./Dial_1.0.3_arm64.deb`.
+download `Dial_1.0.4_arm64.deb` and `sudo apt install ./Dial_1.0.4_arm64.deb`.
 ARM64 Linux has a `.deb` only — there is no ARM AppImage or `.rpm`.
 
 **ChromeOS** — Dial runs in the Linux development environment (a Debian container), on Intel/AMD and ARM Chromebooks:
@@ -206,8 +240,8 @@ ARM64 Linux has a `.deb` only — there is no ARM AppImage or `.rpm`.
 1. **Settings → Advanced → Developers → Linux development environment → Turn on** (a few minutes the first time).
 2. Open the **Terminal** app and run the one-liner above — it detects ChromeOS and picks the right package.
    Or by hand: `dpkg --print-architecture` says `amd64` (Intel/AMD) or `arm64` (ARM). Download
-   `Dial_1.0.3_amd64.deb` or `Dial_1.0.3_arm64.deb`, move it to **Linux files** and double-click it —
-   or run `sudo apt install ./Dial_1.0.3_<arch>.deb`.
+   `Dial_1.0.4_amd64.deb` or `Dial_1.0.4_arm64.deb`, move it to **Linux files** and double-click it —
+   or run `sudo apt install ./Dial_1.0.4_<arch>.deb`.
 3. Open Dial from the launcher (**Linux apps**). It mixes the sound of the apps in the Linux container.
 
 **FreeBSD** (amd64, FreeBSD 14 or later, with a desktop) — as root:
@@ -217,8 +251,8 @@ pkg install pulseaudio webkit2-gtk_41 bash curl
 curl -fsSL https://ipconfig.co.network/updates/dial/install.sh | bash
 ```
 
-Or download `Dial_1.0.3_freebsd_amd64.tar.gz` and, in the download folder,
-`tar -xzf Dial_1.0.3_freebsd_amd64.tar.gz && sudo sh install.sh` — it installs to `/usr/local/bin/dial`
+Or download `Dial_1.0.4_freebsd_amd64.tar.gz` and, in the download folder,
+`tar -xzf Dial_1.0.4_freebsd_amd64.tar.gz && sudo sh install.sh` — it installs to `/usr/local/bin/dial`
 with a menu entry and icon (`sh install.sh --uninstall` removes them). With PulseAudio running Dial mixes every
 app; without it, Dial controls the OSS master volume.
 
@@ -234,13 +268,13 @@ for your password, like any package install. On FreeBSD, run the installer again
 
 | System | CPU | Download | Updates itself |
 |---|---|---|---|
-| macOS 10.15+ (per-app audio: 14.4+) | Apple silicon | `Dial_1.0.3_aarch64.dmg` | yes |
-| macOS 10.15+ (per-app audio: 14.4+) | Intel | `Dial_1.0.3_x64.dmg` | yes |
-| Linux, any distribution | x86_64 | `Dial_1.0.3_amd64.AppImage` | yes |
-| Debian / Ubuntu / Mint | x86_64 · ARM64 | `Dial_1.0.3_amd64.deb` · `Dial_1.0.3_arm64.deb` | yes |
-| Fedora / openSUSE | x86_64 | `Dial_1.0.3_x86_64.rpm` | yes |
+| macOS 10.15+ (per-app audio: 14.4+) | Apple silicon | `Dial_1.0.4_aarch64.dmg` | yes |
+| macOS 10.15+ (per-app audio: 14.4+) | Intel | `Dial_1.0.4_x64.dmg` | yes |
+| Linux, any distribution | x86_64 | `Dial_1.0.4_amd64.AppImage` | yes |
+| Debian / Ubuntu / Mint | x86_64 · ARM64 | `Dial_1.0.4_amd64.deb` · `Dial_1.0.4_arm64.deb` | yes |
+| Fedora / openSUSE | x86_64 | `Dial_1.0.4_x86_64.rpm` | yes |
 | ChromeOS (Linux development environment) | x86_64 / ARM64 | the `.deb` for the Chromebook's CPU | yes |
-| FreeBSD 14+ | amd64 | `Dial_1.0.3_freebsd_amd64.tar.gz` | no — rerun the installer |
+| FreeBSD 14+ | amd64 | `Dial_1.0.4_freebsd_amd64.tar.gz` | no — rerun the installer |
 | Windows | — | not available yet | — |
 | Haiku | — | not possible | — |
 
