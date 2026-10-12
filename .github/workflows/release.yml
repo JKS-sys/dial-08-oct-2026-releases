@@ -231,6 +231,19 @@ jobs:
             set -e
             uname -a
             rustc --version
+            # tao gates its window hit_test helper to windows/linux but calls it from the shared
+            # unix (gtk) event loop, so FreeBSD fails with E0425. Widen that one cfg in the fetched source.
+            cargo fetch --manifest-path src-tauri/Cargo.toml
+            for f in "$HOME"/.cargo/registry/src/*/tao-*/src/window.rs; do
+              n=$(grep -n 'pub(crate) fn hit_test' "$f" | cut -d: -f1)
+              if [ -n "$n" ]; then
+                p=$((n - 1))
+                sed -i '' "${p}s/target_os = \"linux\")/target_os = \"linux\", target_os = \"freebsd\", target_os = \"dragonfly\", target_os = \"netbsd\", target_os = \"openbsd\")/" "$f"
+                sed -n "${p}p" "$f"
+              fi
+            done
+            # No updater plugin on FreeBSD, so only the default capability (updater.json names the plugin).
+            export TAURI_CONFIG='{"app":{"security":{"capabilities":["default"]}}}'
             cargo build --release --manifest-path src-tauri/Cargo.toml --bins --features tauri/custom-protocol
             sh scripts/package-freebsd.sh "${{ needs.plan.outputs.version }}" src-tauri/target/release/dial out
             rm -rf src-tauri/target   # copied back to the host otherwise
