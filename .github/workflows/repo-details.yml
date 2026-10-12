@@ -1,0 +1,23 @@
+# Keeps the GitHub description, website and topics of both Dial repos up to date.
+name: repo-details
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['scripts/repo-details.sh', '.github/workflows/repo-details.yml']
+permissions:
+  contents: read
+jobs:
+  details:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Run from the public releases repo (free Actions minutes), the build checks out the private source.
+          repository: ${{ github.repository == 'JKS-sys/dial-08-oct-2026-releases' && 'JKS-sys/dial-08-oct-2026' || github.repository }}
+          ref: ${{ github.repository == 'JKS-sys/dial-08-oct-2026-releases' && (inputs.ref || 'main') || '' }}
+          token: ${{ secrets.RELEASES_TOKEN || github.token }}
+      - name: Description, website, topics
+        env:
+          GH_TOKEN: ${{ secrets.RELEASES_TOKEN }}
+        run: bash scripts/repo-details.sh
