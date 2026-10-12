@@ -1,0 +1,69 @@
+# Builds Dial's macOS audio engine (mac-engine/, Swift) for both Mac CPUs on GitHub's own Macs:
+# Intel (x86_64) on an Intel runner, Apple silicon (arm64) on an Apple runner. update.sh uses these
+# when the engine doesn't build on the owner's Mac (e.g. the Intel slice), downloading the artifact
+# for the commit it just pushed. Each binary is also cached on R2 by source hash
+# (engine-<hash>-dial-engine-<triple>), so an unchanged engine is never rebuilt.
+name: mac-engine
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: "Source commit (only used when this runs from the public releases repo)"
+        required: false
+        type: string
+  push:
+    branches: [main]
+    paths: ['mac-engine/**', '.github/workflows/mac-engine.yml']
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - triple: x86_64-apple-darwin
+            runner: macos-15-intel
+          - triple: aarch64-apple-darwin
+            runner: macos-15
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 30
+    env:
+      HAS_CF: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Run from the public releases repo (free Actions minutes), the build checks out the private source.
+          repository: ${{ github.repository == 'JKS-sys/dial-08-oct-2026-releases' && 'JKS-sys/dial-08-oct-2026' || github.repository }}
+          ref: ${{ github.repository == 'JKS-sys/dial-08-oct-2026-releases' && (inputs.ref || 'main') || '' }}
+          token: ${{ secrets.RELEASES_TOKEN || github.token }}
+      - name: Source hash
+        id: h
+        run: |
+          export LC_ALL=C
+          echo "hash=$(cat mac-engine/*.swift mac-engine/build.sh | shasum -a 256 | cut -c1-12)" >> "$GITHUB_OUTPUT"
+          uname -m; xcrun swiftc --version
+      - name: Build ${{ matrix.triple }}
+        run: bash mac-engine/build.sh "${{ matrix.triple }}" "out/dial-engine-${{ matrix.triple }}"
+      - name: Smoke test (answers the protocol)
+        if: ${{ (matrix.triple == 'x86_64-apple-darwin' && runner.arch == 'X64') || (matrix.triple == 'aarch64-apple-darwin' && runner.arch == 'ARM64') }}
+        run: |
+          out="$(printf '{"id":1,"op":"ping"}\n' | ./out/dial-engine-${{ matrix.triple }} | head -n 1)"
+          echo "$out"
+          echo "$out" | grep -q '"ok":true'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dial-engine-${{ matrix.triple }}
+          path: out/dial-engine-${{ matrix.triple }}
+          retention-days: 30
+      - name: Cache on R2 by source hash
+        if: ${{ env.HAS_CF == 'true' }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          npx --yes wrangler@4 r2 object put "dial-08-oct-2026/engine-${{ steps.h.outputs.hash }}-dial-engine-${{ matrix.triple }}" \
+            --file "out/dial-engine-${{ matrix.triple }}" --content-type application/octet-stream --remote
