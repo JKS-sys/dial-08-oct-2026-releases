@@ -2,6 +2,32 @@
 
 Newest first. Downloads: https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest · https://ipconfig.co.network/dial
 
+## Dial 1.0.5 — 12 Oct 2026
+
+**Battery care, displays with HiDPI, memory taming and a menu bar you choose**
+
+- **Battery (an AlDente-style charge manager):**
+  - Charge limit and Discharge are free. With Pro: Automatic Discharge, Top Up, Sailing Mode, Heat Protection, Calibration Mode, MagSafe LED colours, stop charging while asleep or when Dial is closed, stay awake until the limit, Low Power Mode, and schedules with catch-up and a task history.
+  - A live Power Flow diagram shows where the watts go, and you see the hardware battery percentage next to the one macOS shows.
+  - On Linux you get the charge limit, sailing, top up and schedules (on laptops that support charge thresholds).
+- **Displays (a BetterDisplay-style manager):**
+  - Flexible HiDPI renders any display at 2× for crisp text at any size (Pro).
+  - Resolution and refresh rate, favourite modes, brightness for the built-in screen and for external monitors (DDC), software dimming down to black, contrast, colour temperature (Night Shift for TVs), DDC volume and input, rotation, mirroring, main display, arrangement, disconnect and reconnect, virtual screens and EDID export.
+- **One-time helper:** install the Dial helper once, with one password, and fan control, charging and memory cleanup stop asking for your password.
+- **App Tamer for memory:**
+  - Cap an app's memory (Linux sends the rest to swap; macOS pauses it above the limit while it's in the background), pause it in the background or move it to the efficiency cores.
+  - Free memory now, plus warnings for RAM, swap and VRAM hogs.
+  - Per-app RAM, swap, compressed memory and VRAM.
+  - CPU taming now catches Safari's page processes and resumes every held app even if Dial is force-quit.
+- **Menu bar items:** pick any mix: CPU, temperature, fan rpm, memory, swap, Macintosh HD free space (e.g. 249.05 GB), network, battery, power, GPU, VRAM, App Tamer, the main display mode and uptime. You can show the icon, the text or both.
+- **Screen Studio:** recordings can run with no time limit (Pro). A new Camera mode records your webcam full screen with your microphone.
+- **Run in background:** closing the last window quits Dial, unless Run in background is on, or the Dock icon is off and the menu bar icon is on.
+- **Fixed:** turning the Dock icon or the menu bar icon on or off could crash Dial.
+- **Right-click everywhere:** much more in the app (every view, sidebar item, title bar button and status bar segment), in the Dock menu, in a new Tools menu and in the menu bar menu. There are also `dial://` links for battery, displays and memory.
+- **Fits any size:** with 12 views the sidebar folds the extra ones into a More button, and nothing scrolls or overlaps down to 480 × 360.
+- More colour (still no pink), more vector animations and new sounds throughout. The startup animation shows all 12 views.
+- **FreeBSD:** the build is fixed.
+
 ## Dial 1.0.4 — 12 Oct 2026
 
 **Screen Studio, a system monitor, an app tamer and thermals** — Dial now looks after your whole Mac, not only its sound.
