@@ -1,0 +1,320 @@
+# Dial — Linux (x64 AppImage + .deb + .rpm, ARM64 .deb) and FreeBSD (amd64 tarball) builds. No Windows.
+# The Mac build (with its Swift audio engine), the DMGs and the release itself come from update.sh, which
+# dispatches this workflow with the version it just published. Platform list and reasons (ChromeOS, Haiku):
+# docs/PLATFORMS.md.
+#
+# Secrets (update.sh sets them): TAURI_SIGNING_PRIVATE_KEY, TAURI_SIGNING_PRIVATE_KEY_PASSWORD (absent = ''),
+# RELEASES_TOKEN (PAT with write access to the public releases repo), CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID.
+name: release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to build (x.y.z) — update.sh passes it"
+        required: true
+        type: string
+      ref:
+        description: "Source commit (only used when this runs from the public releases repo)"
+        required: false
+        type: string
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ inputs.version || github.ref_name }}
+  cancel-in-progress: false
+
+env:
+  PUB_REPO: JKS-sys/dial-08-oct-2026-releases
+  BUCKET: dial-08-oct-2026
+  R2_KEEP: '^Dial_(aarch64|x64)\.app\.tar\.gz(\.sig)?$'
+
+jobs:
+  plan:
+    # Tags in the public repo come from update.sh's release; only an explicit dispatch builds there.
+    if: ${{ github.event_name == 'workflow_dispatch' || github.repository != 'JKS-sys/dial-08-oct-2026-releases' }}
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.p.outputs.version }}
+      matrix: ${{ steps.p.outputs.matrix }}
+    steps:
+      - id: p
+        env:
+          IN_VERSION: ${{ inputs.version }}
+        run: |
+          V="${IN_VERSION:-$GITHUB_REF_NAME}"
+          V="${V#v}"
+          if ! printf '%s' "$V" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$'; then
+            echo "::error::version '$V' is not x.y.z"; exit 1
+          fi
+          echo "version=$V" >> "$GITHUB_OUTPUT"
+          # target '' = the runner's own architecture. linux-arm64 is cross-compiled on x64 (Tauri's
+          # "Cross-compiling for ARM-based Linux" guide): free ubuntu-24.04-arm runners are not
+          # guaranteed for private repos, and AppImage cannot be cross-built (linuxdeploy), so .deb only.
+          M='{"include":['
+          M="$M"'{"os":"ubuntu-22.04","platform":"linux-x64","target":"","bundles":"appimage,deb,rpm","cross":false},'
+          M="$M"'{"os":"ubuntu-22.04","platform":"linux-arm64","target":"aarch64-unknown-linux-gnu","bundles":"deb","cross":true}'
+          M="$M"']}'
+          echo "matrix=$M" >> "$GITHUB_OUTPUT"
+          echo "Dial $V → linux x64 (appimage, deb, rpm) + arm64 (deb), freebsd amd64 (tar.gz)" >> "$GITHUB_STEP_SUMMARY"
+
+  build:
+    needs: plan
+    name: build (${{ matrix.platform }})
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash
+    env:
+      VERSION: ${{ needs.plan.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Run from the public releases repo (free Actions minutes), the build checks out the private source.
+          repository: ${{ github.repository == 'JKS-sys/dial-08-oct-2026-releases' && 'JKS-sys/dial-08-oct-2026' || github.repository }}
+          ref: ${{ github.repository == 'JKS-sys/dial-08-oct-2026-releases' && (inputs.ref || 'main') || '' }}
+          token: ${{ secrets.RELEASES_TOKEN || github.token }}
+
+      # No `cache: npm`: setup-node fails when package-lock.json is absent, and the lockfile may come and go.
+      # The install steps use `npm ci` when a lockfile exists, else `npm install`.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+
+      # `rpm` is not needed by Tauri's own .rpm bundler (pure Rust) but lets the job inspect the package.
+      - name: Linux build dependencies
+        if: ${{ !matrix.cross }}
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libwebkit2gtk-4.1-dev libxdo-dev libssl-dev librsvg2-dev patchelf libayatana-appindicator3-dev rpm
+
+      # Tauri docs, "Cross-compiling for ARM-based Linux" (v2.tauri.app/distribute/debian/): arm64 multiarch
+      # WebKitGTK 4.1 dev libs from ports.ubuntu.com, the aarch64 gcc as linker, pkg-config pointed at the
+      # arm64 .pc files. Existing apt sources are pinned to amd64 so `apt-get update` does not look for
+      # arm64 indexes on archive.ubuntu.com (which has none).
+      - name: Linux ARM64 cross toolchain
+        if: matrix.cross
+        run: |
+          set -euo pipefail
+          CODENAME="$(. /etc/os-release && echo "$VERSION_CODENAME")"
+          for f in /etc/apt/sources.list /etc/apt/sources.list.d/*.list; do
+            [ -f "$f" ] || continue
+            sudo sed -i -E '/arch=/!{s/^deb \[/deb [arch=amd64 /;t;s/^deb ([^[])/deb [arch=amd64] \1/}' "$f"
+          done
+          for f in /etc/apt/sources.list.d/*.sources; do
+            [ -f "$f" ] || continue
+            grep -q '^Architectures:' "$f" || sudo sed -i '/^Types:/a Architectures: amd64' "$f"
+          done
+          {
+            for pocket in "" -updates -backports -security; do
+              echo "deb [arch=arm64] http://ports.ubuntu.com/ubuntu-ports ${CODENAME}${pocket} main restricted universe multiverse"
+            done
+          } | sudo tee /etc/apt/sources.list.d/arm64-ports.list
+          sudo dpkg --add-architecture arm64
+          sudo apt-get update
+          sudo apt-get install -y gcc-aarch64-linux-gnu libc6-dev-arm64-cross \
+            libwebkit2gtk-4.1-dev:arm64 libssl-dev:arm64 libdbus-1-dev:arm64 \
+            libayatana-appindicator3-dev:arm64 librsvg2-dev:arm64 libxdo-dev:arm64
+          {
+            echo "CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER=aarch64-linux-gnu-gcc"
+            echo "CC_aarch64_unknown_linux_gnu=aarch64-linux-gnu-gcc"
+            echo "AR_aarch64_unknown_linux_gnu=aarch64-linux-gnu-ar"
+            # A sysroot turns on the pkg-config crate's cross mode. The arm64 libs are multiarch under
+            # /usr (not under /usr/aarch64-linux-gnu), so the sysroot is / and LIBDIR lists only the
+            # arm64 + arch-independent .pc dirs — never the amd64 ones.
+            echo "PKG_CONFIG_ALLOW_CROSS=1"
+            echo "PKG_CONFIG_SYSROOT_DIR=/"
+            echo "PKG_CONFIG_LIBDIR=/usr/lib/aarch64-linux-gnu/pkgconfig:/usr/share/pkgconfig"
+          } >> "$GITHUB_ENV"
+
+      - name: Updater pubkey + signing key present
+        env:
+          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+        run: node scripts/ci.mjs pubkey
+
+      - name: Set version ${{ needs.plan.outputs.version }}
+        run: node scripts/version.mjs set ${{ needs.plan.outputs.version }}
+
+      - name: Install npm packages
+        run: |
+          if [ -f package-lock.json ]; then npm ci --no-audit --no-fund || npm install --no-audit --no-fund
+          else npm install --no-audit --no-fund; fi
+
+      - name: Build ${{ matrix.target || 'native' }} (${{ matrix.bundles }})
+        env:
+          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
+        run: npx tauri build ${{ matrix.target && format('--target {0}', matrix.target) || '' }} --bundles ${{ matrix.bundles }}
+
+      - name: Collect installers (+ sign any the CLI left unsigned)
+        env:
+          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
+        run: node scripts/ci.mjs collect ${{ needs.plan.outputs.version }} out
+
+      - name: Show package metadata (dependencies)
+        continue-on-error: true
+        run: |
+          for f in out/*.deb; do [ -f "$f" ] && dpkg-deb -f "$f" Package Version Architecture Depends; done
+          for f in out/*.rpm; do [ -f "$f" ] && rpm -qp --requires "$f" | grep -v '^rpmlib' | head -20; done
+          true
+
+      - name: Upload to the GitHub release
+        env:
+          GH_TOKEN: ${{ secrets.RELEASES_TOKEN }}
+        run: |
+          node scripts/ci.mjs release ${{ needs.plan.outputs.version }}
+          node scripts/ci.mjs upload ${{ needs.plan.outputs.version }} out
+
+      - name: Upload to R2
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: node scripts/ci.mjs r2 out
+
+  # FreeBSD: no Tauri CLI binary for FreeBSD and no bundler target, so the frontend is built on the
+  # Linux host (dist/ is platform-independent) and only `cargo build` runs inside a FreeBSD VM — the same
+  # cargo invocation `tauri build` makes (--features tauri/custom-protocol embeds dist/). No self-update
+  # (tauri-plugin-updater is not compiled for FreeBSD). Never blocks the release.
+  freebsd:
+    needs: plan
+    name: build (freebsd-amd64)
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    timeout-minutes: 120
+    env:
+      VERSION: ${{ needs.plan.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Run from the public releases repo (free Actions minutes), the build checks out the private source.
+          repository: ${{ github.repository == 'JKS-sys/dial-08-oct-2026-releases' && 'JKS-sys/dial-08-oct-2026' || github.repository }}
+          ref: ${{ github.repository == 'JKS-sys/dial-08-oct-2026-releases' && (inputs.ref || 'main') || '' }}
+          token: ${{ secrets.RELEASES_TOKEN || github.token }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Set version ${{ needs.plan.outputs.version }}
+        run: node scripts/version.mjs set "$VERSION"
+
+      - name: Build the frontend on the host
+        run: |
+          if [ -f package-lock.json ]; then npm ci --no-audit --no-fund || npm install --no-audit --no-fund
+          else npm install --no-audit --no-fund; fi
+          npm run build
+          test -f dist/index.html
+          rm -rf node_modules   # keep the VM sync small
+
+      - name: Build + package inside FreeBSD 14
+        uses: vmactions/freebsd-vm@v1
+        with:
+          release: "14.4"
+          usesh: true
+          mem: 6144
+          prepare: |
+            env ASSUME_ALWAYS_YES=yes IGNORE_OSVERSION=yes pkg install -y \
+              rust pkgconf gtk3 webkit2-gtk_41 libsoup3 dbus librsvg2-rust gdk-pixbuf2 libayatana-appindicator
+          run: |
+            set -e
+            uname -a
+            rustc --version
+            cargo build --release --manifest-path src-tauri/Cargo.toml --bins --features tauri/custom-protocol
+            sh scripts/package-freebsd.sh "${{ needs.plan.outputs.version }}" src-tauri/target/release/dial out
+            rm -rf src-tauri/target   # copied back to the host otherwise
+
+      - name: Upload to the GitHub release
+        env:
+          GH_TOKEN: ${{ secrets.RELEASES_TOKEN }}
+        run: |
+          ls -la out
+          node scripts/ci.mjs release "$VERSION"
+          node scripts/ci.mjs upload "$VERSION" out
+
+      - name: Upload to R2
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: node scripts/ci.mjs r2 out
+
+  publish:
+    needs: [plan, build, freebsd]
+    if: ${{ !cancelled() && needs.plan.result == 'success' }}
+    runs-on: ubuntu-latest
+    env:
+      VERSION: ${{ needs.plan.outputs.version }}
+      GH_TOKEN: ${{ secrets.RELEASES_TOKEN }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Run from the public releases repo (free Actions minutes), the build checks out the private source.
+          repository: ${{ github.repository == 'JKS-sys/dial-08-oct-2026-releases' && 'JKS-sys/dial-08-oct-2026' || github.repository }}
+          ref: ${{ github.repository == 'JKS-sys/dial-08-oct-2026-releases' && (inputs.ref || 'main') || '' }}
+          token: ${{ secrets.RELEASES_TOKEN || github.token }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Download signatures + current latest.json
+        run: |
+          mkdir -p release
+          gh release download "v$VERSION" -R "$PUB_REPO" -D release -p '*.sig' -p 'latest.json' --clobber || true
+          if [ -f release/latest.json ]; then mv release/latest.json release/prev-latest.json; fi
+          gh release view "v$VERSION" -R "$PUB_REPO" --json assets -q '.assets[].name' > release/assets.txt
+          ls -la release
+
+      - name: Merge latest.json (every .sig present)
+        run: node scripts/manifest.mjs "$VERSION" --prev release/prev-latest.json --assets-file release/assets.txt --offline
+
+      - name: Publish latest.json (release, R2, public repo) — last
+        run: |
+          gh release upload "v$VERSION" release/latest.json --clobber -R "$PUB_REPO"
+          npx --yes wrangler@4 r2 object put "$BUCKET/latest.json" --file release/latest.json \
+            --content-type application/json --cache-control no-cache --remote
+          git config --global user.name "dial-release"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git clone -q --depth 1 "https://x-access-token:${GH_TOKEN}@github.com/${PUB_REPO}.git" pub
+          cd pub
+          for i in 1 2 3; do
+            git fetch -q --depth 1 origin main
+            # Move onto the newest main without touching other files (update.sh may have just pushed
+            # README/notes): soft-reset the branch, then reset the index to that tree, so the one
+            # commit carries latest.json only.
+            git reset -q --soft origin/main
+            git reset -q origin/main
+            cp ../release/latest.json latest.json
+            git add latest.json
+            if git diff --cached --quiet; then echo "latest.json already current"; break; fi
+            git commit -q -m "latest.json: Dial $VERSION (Linux + FreeBSD)"
+            if git push -q origin HEAD:main; then echo "pushed"; break; fi
+            echo "push raced, retrying ($i)"; sleep 5
+          done
+
+      # prune-gh drops an old platform's installers only when v$VERSION carries that platform, so a failed
+      # FreeBSD build (continue-on-error) leaves the previous FreeBSD tarball in place.
+      - name: Prune old Linux/FreeBSD installers, then old manifests/notes
+        if: ${{ needs.build.result == 'success' }}
+        run: |
+          node scripts/prune-gh.mjs --repo "$PUB_REPO" --current "$VERSION" --platforms linux,freebsd
+          node scripts/prune-gh.mjs --repo "$PUB_REPO" --current "$VERSION" --everything
+
+      # R2_KEEP protects the versionless Mac updater bundles; prune-r2 also keeps the newest copy of any
+      # installer kind (e.g. the FreeBSD tarball) that has no file for v$VERSION yet.
+      - name: Prune R2
+        if: ${{ needs.build.result == 'success' }}
+        run: node scripts/prune-r2.mjs --bucket "$BUCKET" --current "$VERSION" --keep "$R2_KEEP"
