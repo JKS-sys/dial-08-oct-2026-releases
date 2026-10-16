@@ -2,6 +2,52 @@
 
 Newest first. Downloads: https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest · https://ipconfig.co.network/dial
 
+## Dial 1.0.7 — 16 Oct 2026
+
+**Battery that works on current Macs, an idle cleaner, Block, Windows, accounts, and a menu bar that works over full-screen apps**
+
+- **Battery fixed for current Macs.** Dial now detects which of Apple's three charging-firmware generations your Mac has and uses the method that still works: the firmware's own limit (macOS 26.4+ firmware), the classic charging switch (older firmware), turning the power adapter off at the limit (the newest firmware, which blocks the old keys — as AlDente does), or macOS's own 80–100 % limit. The Battery view says which method is in use and why. The helper now verifies itself after installing, keeps a log, shows launchd's real error, and has a Repair button.
+- **Several apps playing at once.** Stopping one app no longer silences the others: Dial keeps each app's audio path when it pauses, re-checks the others after any change, rebuilds a stalled path within half a second, and never leaves an app muted without a working path.
+- **Menu bar dropdown over full-screen apps.** The dropdown and the volume pop-up now open on top of a full-screen app without switching Space.
+- **New menu bar dropdown.** Rows sit tightly together. It has dropdowns for outputs, inputs, each app's device and EQ, a brightness slider and HiDPI switch for every display, fan speed and the hottest temperature with a fan menu (Auto / Quiet / Boost / Max), CPU, memory, a battery menu, the apps and services using the most CPU or memory with Slow / Pause / Quit / Block, and Clean idle.
+- **Idle cleaner.** Quits or hides apps you haven't used for a while (countdowns, a never-quit list, quit when the last window closes, a daily reset), never the front app or an app playing sound. Lists idle background services and leftover command-line tools in memory — forgotten dev servers, orphaned language servers, idle `ollama serve`, `caffeinate` — and cleans them with one click, or automatically.
+- **Block.** Quits an app or service (force-quits if needed), switches its launchd job off where macOS allows, and stops it every time it starts again. Unblock any time from the Blocked list.
+- **Notifications that open Dial.** Clicking one opens the right page. Per-kind switches and a Test button in Settings → Notifications.
+- **Lives in.** Dock and menu bar, Dock, menu bar, or background. Closing the last window quits Dial whenever it is in the Dock; in the menu bar or background it keeps running only while Run in background is on.
+- **Accounts.** Sign in with an email code or a password; your licence is tied to this computer, works offline for up to 14 days, and lists your computers so you can free a seat. Older codes and subscriptions carry over by themselves. The Owner Panel stays connected to the dashboard on its own.
+- **Windows.** Per-app volume with real per-app levels, device switching, system-sound recording, screen recording, display modes, brightness and EDID; a system-wide EQ with Equalizer APO.
+- **Installers built on the Mac.** `update.sh` builds macOS, Windows, Linux (incl. ChromeOS) and FreeBSD installers locally. Haiku isn't possible: Tauri has no web view for Haiku.
+- **Finder.** 20 right-click services: play, add to the library, trim, fix sound, apply an EQ preset, normalize loudness, convert to MP3/AAC/M4A/WAV/FLAC, extract audio, compress video, make a ringtone, audio info, record the screen into a folder, set the Screen Studio folder, free memory, block, open. A File jobs drawer shows their progress.
+- **Everywhere.** A Controls menu and bigger Dock and menu bar menus; right-click menus on nearly everything; 8 layouts per list; 27 new sounds, each with a small animation; no overlaps or sideways scrolling from 480 × 360 up; more colour, never pink.
+- **Sound Profiles.** Save your whole sound — volumes, every app, EQ, enhancers, fixer, output and input — as a profile and bring it back with one click, a hotkey or the menu, crossfaded in 0.4 s. Profiles can switch by themselves when headphones connect, when an app starts playing or at a time of day. Per app: lower the others while it plays, a volume cap, and its own volume for every output. Listening stats show which apps played today, this week and this month.
+- **Menu bar clicks come alive.** The menu bar icon animates on clicks, mute, volume, output switches and recording, with a soft click sound. On macOS the right-click menu has a coloured symbol on every item, a header with the current output and volume, and a Now Playing list. The dropdown opens with a small drop-in animation, and its sections have their own live glyphs (a fan spinning at the real speed, a thermometer, battery fill, sun rays, a flame, a sleepy moon).
+- **Windows and FreeBSD builds fixed.** The Windows app links (a WinRT library name was wrong; the Windows builds keep their own Cargo folder so a home folder with spaces can't break the linker), ARM64 uses cargo-xwin's clang mode for ring, and FreeBSD builds without the updater permission it doesn't have. The Windows installers no longer depend on Tauri's own short-timeout download of its NSIS plugin: the release script fetches it with retries beforehand.
+- **Releases.** The build board redraws in place instead of scrolling, a drawing error can no longer stop a release, and a failed build shows its log straight away.
+- **Smaller.** Trimmed Tauri features and a size-optimised, stripped audio engine. (A Tauri app can't reach 3 MB: about 8 MB on Linux.)
+
+## Dial 1.0.6 — 16 Oct 2026
+
+**Battery that works on current Macs, an idle cleaner, Block, Windows, accounts, and a menu bar that works over full-screen apps**
+
+- **Battery fixed for current Macs.** Dial now detects which of Apple's three charging-firmware generations your Mac has and uses the method that still works: the firmware's own limit (macOS 26.4+ firmware), the classic charging switch (older firmware), turning the power adapter off at the limit (the newest firmware, which blocks the old keys — as AlDente does), or macOS's own 80–100 % limit. The Battery view says which method is in use and why. The helper now verifies itself after installing, keeps a log, shows launchd's real error, and has a Repair button.
+- **Several apps playing at once.** Stopping one app no longer silences the others: Dial keeps each app's audio path when it pauses, re-checks the others after any change, rebuilds a stalled path within half a second, and never leaves an app muted without a working path.
+- **Menu bar dropdown over full-screen apps.** The dropdown and the volume pop-up now open on top of a full-screen app without switching Space.
+- **New menu bar dropdown.** Rows sit tightly together. It has dropdowns for outputs, inputs, each app's device and EQ, a brightness slider and HiDPI switch for every display, fan speed and the hottest temperature with a fan menu (Auto / Quiet / Boost / Max), CPU, memory, a battery menu, the apps and services using the most CPU or memory with Slow / Pause / Quit / Block, and Clean idle.
+- **Idle cleaner.** Quits or hides apps you haven't used for a while (countdowns, a never-quit list, quit when the last window closes, a daily reset), never the front app or an app playing sound. Lists idle background services and leftover command-line tools in memory — forgotten dev servers, orphaned language servers, idle `ollama serve`, `caffeinate` — and cleans them with one click, or automatically.
+- **Block.** Quits an app or service (force-quits if needed), switches its launchd job off where macOS allows, and stops it every time it starts again. Unblock any time from the Blocked list.
+- **Notifications that open Dial.** Clicking one opens the right page. Per-kind switches and a Test button in Settings → Notifications.
+- **Lives in.** Dock and menu bar, Dock, menu bar, or background. Closing the last window quits Dial whenever it is in the Dock; in the menu bar or background it keeps running only while Run in background is on.
+- **Accounts.** Sign in with an email code or a password; your licence is tied to this computer, works offline for up to 14 days, and lists your computers so you can free a seat. Older codes and subscriptions carry over by themselves. The Owner Panel stays connected to the dashboard on its own.
+- **Windows.** Per-app volume with real per-app levels, device switching, system-sound recording, screen recording, display modes, brightness and EDID; a system-wide EQ with Equalizer APO.
+- **Installers built on the Mac.** `update.sh` builds macOS, Windows, Linux (incl. ChromeOS) and FreeBSD installers locally. Haiku isn't possible: Tauri has no web view for Haiku.
+- **Finder.** 20 right-click services: play, add to the library, trim, fix sound, apply an EQ preset, normalize loudness, convert to MP3/AAC/M4A/WAV/FLAC, extract audio, compress video, make a ringtone, audio info, record the screen into a folder, set the Screen Studio folder, free memory, block, open. A File jobs drawer shows their progress.
+- **Everywhere.** A Controls menu and bigger Dock and menu bar menus; right-click menus on nearly everything; 8 layouts per list; 27 new sounds, each with a small animation; no overlaps or sideways scrolling from 480 × 360 up; more colour, never pink.
+- **Sound Profiles.** Save your whole sound — volumes, every app, EQ, enhancers, fixer, output and input — as a profile and bring it back with one click, a hotkey or the menu, crossfaded in 0.4 s. Profiles can switch by themselves when headphones connect, when an app starts playing or at a time of day. Per app: lower the others while it plays, a volume cap, and its own volume for every output. Listening stats show which apps played today, this week and this month.
+- **Menu bar clicks come alive.** The menu bar icon animates on clicks, mute, volume, output switches and recording, with a soft click sound. On macOS the right-click menu has a coloured symbol on every item, a header with the current output and volume, and a Now Playing list. The dropdown opens with a small drop-in animation, and its sections have their own live glyphs (a fan spinning at the real speed, a thermometer, battery fill, sun rays, a flame, a sleepy moon).
+- **Windows and FreeBSD builds fixed.** The Windows app links (a WinRT library name was wrong; the Windows builds keep their own Cargo folder so a home folder with spaces can't break the linker), ARM64 uses cargo-xwin's clang mode for ring, and FreeBSD builds without the updater permission it doesn't have.
+- **Releases.** The build board redraws in place instead of scrolling, a drawing error can no longer stop a release, and a failed build shows its log straight away.
+- **Smaller.** Trimmed Tauri features and a size-optimised, stripped audio engine. (A Tauri app can't reach 3 MB: about 8 MB on Linux.)
+
 ## Dial 1.0.5 — 12 Oct 2026
 
 **Battery care, displays with HiDPI, memory taming and a menu bar you choose**
@@ -133,8 +179,11 @@ Newest first. Downloads: https://github.com/JKS-sys/dial-08-oct-2026-releases/re
 
 ### Install
 
-- **macOS, Linux, ChromeOS and FreeBSD** — one line in a terminal: `curl -fsSL https://ipconfig.co.network/updates/dial/install.sh | bash`
-- **Linux** packages: `.deb` (Debian, Ubuntu, Mint — x86_64 and ARM64), `.rpm` (Fedora, openSUSE — x86_64) or the AppImage; the installer picks the right one.
-- **ChromeOS**: turn on the Linux development environment, then run the same line in its Terminal (or install the `.deb`).
+- **macOS, Linux, ChromeOS and FreeBSD** — with Pour: `curl -fsSL https://ipconfig.co.network/pour/install | sh` then `pour install --cask dial`
+- **Windows** (x64 and ARM64) — get Pour (`pour-windows-x86_64.exe` or `pour-windows-arm64.exe` from https://ipconfig.co.network/pour/dl/), then `pour install --cask dial`; or run `Dial_<version>_x64-setup.exe` / `_arm64-setup.exe` from this release.
+- **Linux** packages: `.deb` (Debian, Ubuntu, Mint), `.rpm` (Fedora, openSUSE) and the AppImage — each for x86_64 and ARM64.
+- **ChromeOS** = the Linux `.deb`: turn on the Linux development environment, then install it (or use Pour) in its Terminal.
+- **FreeBSD** 14.x (amd64): the `_freebsd_amd64.tar.gz` (`tar -xzf … && sudo sh install.sh`), or Pour.
+- **Haiku**: not possible — Tauri has no WebView backend for Haiku.
 
-First launch on macOS after a manual DMG install: `xattr -cr /Applications/Dial.app` (Dial is ad-hoc signed, not notarized). Per-app volume and the equaliser on macOS need macOS 14.4 or later.
+First launch on macOS after a manual DMG install: `xattr -cr /Applications/Dial.app` (Dial is self-signed, not notarized). Per-app volume and the equaliser on macOS need macOS 14.4 or later.
