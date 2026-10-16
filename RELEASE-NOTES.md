@@ -2,6 +2,15 @@
 
 Newest first. Downloads: https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest · https://ipconfig.co.network/dial
 
+## Dial 1.0.8 — 16 Oct 2026
+
+- **Apps going silent when several play at once.** When a second app started playing, the first one's audio path could keep running but receive nothing — so that app went silent while only the other one played. Dial now notices an app that is playing but whose path delivers only silence for 2.5 seconds, and rebuilds that path; it also re-checks every other app whenever a new app's path is built. If an app ever does go quiet, right-click the menu bar icon → Tools → **Fix Silent Apps** (also in the Dock menu and the window's right-click menu) restarts the sound engine.
+- **The mini mixer over full-screen apps.** macOS hides the menu bar in a full-screen app, so the icon can't be clicked. Rest the pointer in the **top-right corner** of the screen and the mini mixer opens there (Settings → Lives in → Full-screen apps: top right, top left or off; also in the menu bar and Dock menus). The ⌃⌥⌘M hotkey still opens it anywhere. A click on the menu bar icon now always opens the mixer on the screen and Space you are looking at — if it had been left open on another Space, the click used to close that one instead.
+- **Battery helper no longer shows an error after every update.** Dial treated the helper as out of date whenever its version number differed from the app's, so after each update the Battery view and Settings showed "press Repair". A helper that speaks the same protocol does every job, so it now counts as up to date. The helper log only shows the helper's current run, with clock times, and normal probe lines are no longer shown as errors.
+- **Menu bar animations.** Each icon style has its own click animation (the wave flows, the bars dance, the speaker's waves grow, the knob turns); closing the mini mixer turns the knob back; right-click bursts sparks; picking any menu item draws a check mark; applying a sound profile slides a card in (with its own sound); switching the equalizer moves three sliders.
+- **New sounds with pictures:** the hot corner, the sound engine restarting, and a silent app playing again.
+- **More in the menus.** The Dock menu now has Volume ▸ (10–100 %, up, down), Apps ▸ (mute or unmute each app, ♪ on the ones playing), Auto-pause music and Auto-switch output, like the menu bar menu. The window's right-click menus gain Fix silent apps, Sound profiles ▸ (apply any profile) and Test tone ▸ (left, right or both) — also on the master volume, apps and engine menus.
+
 ## Dial 1.0.7 — 16 Oct 2026
 
 **Battery that works on current Macs, an idle cleaner, Block, Windows, accounts, and a menu bar that works over full-screen apps**
