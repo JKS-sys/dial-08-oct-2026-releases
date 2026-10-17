@@ -11,7 +11,7 @@
 <p align="center"><b>An AI sound mixer — for macOS, Windows, Linux, ChromeOS and FreeBSD</b></p>
 
 <p align="center">
-  Version <b>1.0.8</b> · released 16 Oct 2026 ·
+  Version <b>1.0.9</b> · released 17 Oct 2026 ·
   <a href="https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest">Download</a> ·
   <a href="https://ipconfig.co.network/dial">Website</a> ·
   <a href="RELEASE-NOTES.md">Release notes</a>
@@ -250,20 +250,20 @@ pour install --cask dial
 iwr https://ipconfig.co.network/pour/dl/pour-windows-x86_64.exe -OutFile pour.exe; .\pour.exe install --cask dial
 ```
 
-Or download the installer for your system directly (version 1.0.8; every file is also on the
+Or download the installer for your system directly (version 1.0.9; every file is also on the
 [latest release page](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest)):
 
 | System | CPU | Download |
 |---|---|---|
-| macOS 10.15+ | Apple silicon | [Dial_1.0.8_aarch64.dmg](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.8/Dial_1.0.8_aarch64.dmg) |
-| macOS 10.15+ | Intel | [Dial_1.0.8_x64.dmg](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.8/Dial_1.0.8_x64.dmg) |
-| Windows 10 / 11 | x64 | [Dial_1.0.8_x64-setup.exe](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.8/Dial_1.0.8_x64-setup.exe) |
-| Windows 10 / 11 | ARM64 | [Dial_1.0.8_arm64-setup.exe](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.8/Dial_1.0.8_arm64-setup.exe) |
-| Debian / Ubuntu / Mint | x86_64 · ARM64 | [amd64 .deb](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.8/Dial_1.0.8_amd64.deb) · [arm64 .deb](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.8/Dial_1.0.8_arm64.deb) |
-| Fedora / openSUSE | x86_64 · ARM64 | [x86_64 .rpm](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.8/Dial_1.0.8_x86_64.rpm) · [aarch64 .rpm](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.8/Dial_1.0.8_aarch64.rpm) |
-| Linux, any distribution | x86_64 · ARM64 | [amd64 AppImage](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.8/Dial_1.0.8_amd64.AppImage) · [arm64 AppImage](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.8/Dial_1.0.8_arm64.AppImage) |
+| macOS 10.15+ | Apple silicon | [Dial_1.0.9_aarch64.dmg](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.9/Dial_1.0.9_aarch64.dmg) |
+| macOS 10.15+ | Intel | [Dial_1.0.9_x64.dmg](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.9/Dial_1.0.9_x64.dmg) |
+| Windows 10 / 11 | x64 | [Dial_1.0.9_x64-setup.exe](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.9/Dial_1.0.9_x64-setup.exe) |
+| Windows 10 / 11 | ARM64 | [Dial_1.0.9_arm64-setup.exe](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.9/Dial_1.0.9_arm64-setup.exe) |
+| Debian / Ubuntu / Mint | x86_64 · ARM64 | [amd64 .deb](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.9/Dial_1.0.9_amd64.deb) · [arm64 .deb](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.9/Dial_1.0.9_arm64.deb) |
+| Fedora / openSUSE | x86_64 · ARM64 | [x86_64 .rpm](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.9/Dial_1.0.9_x86_64.rpm) · [aarch64 .rpm](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.9/Dial_1.0.9_aarch64.rpm) |
+| Linux, any distribution | x86_64 · ARM64 | [amd64 AppImage](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.9/Dial_1.0.9_amd64.AppImage) · [arm64 AppImage](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.9/Dial_1.0.9_arm64.AppImage) |
 | ChromeOS (Linux development environment) | x86_64 · ARM64 | the Linux `.deb` for the Chromebook's CPU (above) |
-| FreeBSD 14.x | amd64 | [Dial_1.0.8_freebsd_amd64.tar.gz](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.8/Dial_1.0.8_freebsd_amd64.tar.gz) |
+| FreeBSD 14.x | amd64 | [Dial_1.0.9_freebsd_amd64.tar.gz](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.9/Dial_1.0.9_freebsd_amd64.tar.gz) |
 | Haiku | — | not possible — Tauri has no WebView backend for Haiku |
 
 **macOS** (Apple silicon and Intel, macOS 10.15+) — Pour copies **Dial.app** to `/Applications`. If you install
@@ -284,9 +284,9 @@ SmartScreen may ask once: **More info → Run anyway**.
 **Linux** (x86_64 and ARM64) — works with **PipeWire** and **PulseAudio**; Dial uses `pactl` / `parec` from
 `pulseaudio-utils` (the packages pull it in).
 
-- Debian / Ubuntu / Mint: `sudo apt install ./Dial_1.0.8_amd64.deb` (ARM64: `…_arm64.deb`).
-- Fedora: `sudo dnf install ./Dial_1.0.8_x86_64.rpm` (ARM64: `…_aarch64.rpm`) · openSUSE:
-  `sudo zypper install --allow-unsigned-rpm ./Dial_1.0.8_x86_64.rpm`.
+- Debian / Ubuntu / Mint: `sudo apt install ./Dial_1.0.9_amd64.deb` (ARM64: `…_arm64.deb`).
+- Fedora: `sudo dnf install ./Dial_1.0.9_x86_64.rpm` (ARM64: `…_aarch64.rpm`) · openSUSE:
+  `sudo zypper install --allow-unsigned-rpm ./Dial_1.0.9_x86_64.rpm`.
 - Any distribution: the AppImage — `chmod +x Dial_*.AppImage && ./Dial_*.AppImage` (needs `libfuse2`).
 
 **ChromeOS** — Dial runs in the Linux development environment (a Debian container), on Intel/AMD and ARM
@@ -299,7 +299,7 @@ Chromebooks, and installs the Linux `.deb`:
 
 **FreeBSD** (amd64, FreeBSD 14.x, with a desktop) — Dial needs `pkg install pulseaudio webkit2-gtk_41`, then the
 two Pour lines above. Or, from the downloaded tarball:
-`tar -xzf Dial_1.0.8_freebsd_amd64.tar.gz && sudo sh install.sh` — it installs to `/usr/local/bin/dial` with a
+`tar -xzf Dial_1.0.9_freebsd_amd64.tar.gz && sudo sh install.sh` — it installs to `/usr/local/bin/dial` with a
 menu entry and icon (`sh install.sh --uninstall` removes them). With PulseAudio running Dial mixes every app;
 without it, Dial controls the OSS master volume.
 
