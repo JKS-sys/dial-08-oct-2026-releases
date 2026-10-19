@@ -11,13 +11,17 @@
 <p align="center"><b>An AI sound mixer — for macOS, Windows, Linux, ChromeOS and FreeBSD</b></p>
 
 <p align="center">
-  Version <b>1.0.10</b> · released 17 Oct 2026 ·
+  Version <b>1.0.11</b> · released 19 Oct 2026 ·
   <a href="https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest">Download</a> ·
   <a href="https://ipconfig.co.network/dial">Website</a> ·
   <a href="RELEASE-NOTES.md">Release notes</a>
 </p>
 
-<p align="center"><b>If Dial helps you, please ⭐ star this repository — it helps other people find it.</b></p>
+<p align="center">
+  <a href="https://github.com/JKS-sys/dial-08-oct-2026-releases/stargazers"><img src="https://img.shields.io/github/stars/JKS-sys/dial-08-oct-2026-releases?style=social" alt="Star Dial on GitHub"></a>
+</p>
+
+<p align="center"><b>⭐ If Dial helps you, please <a href="https://github.com/JKS-sys/dial-08-oct-2026-releases">star this repository</a> — one click at the top right, and it helps other people find Dial.</b></p>
 
 <p align="center">
   <img src="icon-512.png" width="96" height="96" alt="Dial icon, dark">&nbsp;&nbsp;
@@ -83,13 +87,13 @@ and *An AI sound mixer* types out. Click or press any key to skip it, or turn it
 <p align="center"><img src="demos/popover.gif" width="720" alt="The menu bar popover: opening it, dragging Spotify's volume, boosting Safari to 400 %, sending Zoom to another output, switching the output and the live microphone level"></p>
 
 **Menu bar popover** — click the knob in the menu bar and every device and app is one glance away: live level meters,
-a volume slider per app, boost chevrons that light up one by one (200 → 300 → 400 %), a globe to send one app to its own
+a volume slider per app, boost chevrons that light up one by one (200 → 400 → 600 → 1000 %), a globe to send one app to its own
 output, a one-click output switch, the live microphone level with a big *Mute microphone* switch — and Bluetooth
 headphones that connect right from the list.
 
 <p align="center"><img src="demos/mixer.gif" width="720" alt="The mixer: dragging per-app volume sliders into the boost zone, muting Zoom and tapping the Focus and Movie scenes"></p>
 
-**Mixer** — every app gets its own volume (0–100 %, up to 400 % with Pro), its own mute and its own colour. One tap on a
+**Mixer** — every app gets its own volume (0–100 %, up to 1000 % with Pro), its own mute and its own colour. One tap on a
 *Quick scene* — Focus, Movie, Call, Normal — sets every app and the sound fixer at once, with a burst of confetti.
 
 <p align="center"><img src="demos/equalizer.gif" width="720" alt="The equaliser: dragging two bands, clicking the Bass Boost preset, searching AutoEQ for Sony WH and applying the profile"></p>
@@ -155,7 +159,7 @@ If Dial isn't running, the link starts it. Every link plays a small sparkle and 
 |---|---|
 | `dial://volume?v=40` | Master volume to 40 % (`v` 0–100) |
 | `dial://mute` · `dial://unmute` · `dial://toggle-mute` | Mute, unmute or flip the master mute |
-| `dial://app?name=Spotify&volume=30` | One app's volume (0–400 %; above 100 % is Pro) — the name matches loosely |
+| `dial://app?name=Spotify&volume=30` | One app's volume (0–1000 %; above 100 % is Pro) — the name matches loosely |
 | `dial://app?name=Zoom&mute=1` | Mute (`1`) or unmute (`0`) one app |
 | `dial://output?name=AirPods` | Switch the output device |
 | `dial://preset?name=Rock` | Apply an EQ preset (built-in or yours) |
@@ -166,6 +170,8 @@ If Dial isn't running, the link starts it. Every link plays a small sparkle and 
 
 Settings → Automation lists them all with Copy and Try buttons, and builds your own.
 
+<p align="center"><b>Enjoying Dial so far? ⭐ <a href="https://github.com/JKS-sys/dial-08-oct-2026-releases">Star the repository</a> — it is free and helps a lot.</b></p>
+
 ## Features
 
 ✓ = in Dial Free · ★ = Dial Pro
@@ -174,7 +180,7 @@ Settings → Automation lists them all with Copy and Try buttons, and builds you
 |---|---|:---:|:---:|
 | 🔊 | **Master volume and mute**, output and input device switching, per-device volume | ✓ | ✓ |
 | 🎚️ | **Per-app volume 0–100 % and mute**, for every app — remembered per app | ✓ | ✓ |
-| 🚀 | **Per-app boost above 100 %**, up to 400 % | — | ★ |
+| 🚀 | **Per-app boost above 100 %**, up to 1000 % | — | ★ |
 | 🎛️ | **10-band graphic equaliser** with 24 built-in presets in 5 colour-coded groups — Music, Voice, Movies & TV, Gaming, Fixes (Footsteps, Dialogue lift, Laptop speakers…) | ✓ | ✓ |
 | 📄 | **EqualizerAPO / AutoEQ files** — import ParametricEQ.txt / config.txt (Preamp, Filter lines, GraphicEQ fitted to the 10 bands) with a colour-coded preview; export the current EQ as ParametricEQ.txt | export ✓ | ★ import |
 | 📈 | **Parametric equaliser** — up to 16 bands, type / frequency / gain / Q | — | ★ |
@@ -232,6 +238,8 @@ Each screenshot follows your theme (dark or light).
 | <picture><source media="(prefers-color-scheme: dark)" srcset="screenshots/eq-presets-categories-dark.png"><img src="screenshots/eq-presets-categories-light.png" alt="Dial preset categories"></picture> <br> *24 presets in 5 colour-coded groups* | <picture><source media="(prefers-color-scheme: dark)" srcset="screenshots/fixer-echo-dark.png"><img src="screenshots/fixer-echo-light.png" alt="Dial echo"></picture> <br> *Echo — the dots bounce at the echo time* |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="screenshots/popover-dark.png"><img src="screenshots/popover-light.png" width="420" alt="Dial menu bar popover"></picture> <br> *Menu bar popover — devices, Bluetooth and apps* | <picture><source media="(prefers-color-scheme: dark)" srcset="screenshots/popover-input-dark.png"><img src="screenshots/popover-input-light.png" width="420" alt="Dial popover microphone tab"></picture> <br> *Microphone tab — live level and mute* |
 
+<p align="center"><b>Enjoying Dial so far? ⭐ <a href="https://github.com/JKS-sys/dial-08-oct-2026-releases">Star the repository</a> — it is free and helps a lot.</b></p>
+
 ## Install
 
 Every system installs Dial with **[Pour](https://ipconfig.co.network/pour)** — one line to get Pour, one to get Dial.
@@ -250,20 +258,20 @@ pour install --cask dial
 iwr https://ipconfig.co.network/pour/dl/pour-windows-x86_64.exe -OutFile pour.exe; .\pour.exe install --cask dial
 ```
 
-Or download the installer for your system directly (version 1.0.10; every file is also on the
+Or download the installer for your system directly (version 1.0.11; every file is also on the
 [latest release page](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest)):
 
 | System | CPU | Download |
 |---|---|---|
-| macOS 10.15+ | Apple silicon | [Dial_1.0.10_aarch64.dmg](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.10/Dial_1.0.10_aarch64.dmg) |
-| macOS 10.15+ | Intel | [Dial_1.0.10_x64.dmg](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.10/Dial_1.0.10_x64.dmg) |
-| Windows 10 / 11 | x64 | [Dial_1.0.10_x64-setup.exe](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.10/Dial_1.0.10_x64-setup.exe) |
-| Windows 10 / 11 | ARM64 | [Dial_1.0.10_arm64-setup.exe](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.10/Dial_1.0.10_arm64-setup.exe) |
-| Debian / Ubuntu / Mint | x86_64 · ARM64 | [amd64 .deb](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.10/Dial_1.0.10_amd64.deb) · [arm64 .deb](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.10/Dial_1.0.10_arm64.deb) |
-| Fedora / openSUSE | x86_64 · ARM64 | [x86_64 .rpm](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.10/Dial_1.0.10_x86_64.rpm) · [aarch64 .rpm](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.10/Dial_1.0.10_aarch64.rpm) |
-| Linux, any distribution | x86_64 · ARM64 | [amd64 AppImage](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.10/Dial_1.0.10_amd64.AppImage) · [arm64 AppImage](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.10/Dial_1.0.10_arm64.AppImage) |
+| macOS 10.15+ | Apple silicon | [Dial_1.0.11_aarch64.dmg](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.11/Dial_1.0.11_aarch64.dmg) |
+| macOS 10.15+ | Intel | [Dial_1.0.11_x64.dmg](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.11/Dial_1.0.11_x64.dmg) |
+| Windows 10 / 11 | x64 | [Dial_1.0.11_x64-setup.exe](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.11/Dial_1.0.11_x64-setup.exe) |
+| Windows 10 / 11 | ARM64 | [Dial_1.0.11_arm64-setup.exe](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.11/Dial_1.0.11_arm64-setup.exe) |
+| Debian / Ubuntu / Mint | x86_64 · ARM64 | [amd64 .deb](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.11/Dial_1.0.11_amd64.deb) · [arm64 .deb](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.11/Dial_1.0.11_arm64.deb) |
+| Fedora / openSUSE | x86_64 · ARM64 | [x86_64 .rpm](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.11/Dial_1.0.11_x86_64.rpm) · [aarch64 .rpm](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.11/Dial_1.0.11_aarch64.rpm) |
+| Linux, any distribution | x86_64 · ARM64 | [amd64 AppImage](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.11/Dial_1.0.11_amd64.AppImage) · [arm64 AppImage](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.11/Dial_1.0.11_arm64.AppImage) |
 | ChromeOS (Linux development environment) | x86_64 · ARM64 | the Linux `.deb` for the Chromebook's CPU (above) |
-| FreeBSD 14.x | amd64 | [Dial_1.0.10_freebsd_amd64.tar.gz](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.10/Dial_1.0.10_freebsd_amd64.tar.gz) |
+| FreeBSD 14.x | amd64 | [Dial_1.0.11_freebsd_amd64.tar.gz](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.11/Dial_1.0.11_freebsd_amd64.tar.gz) |
 | Haiku | — | not possible — Tauri has no WebView backend for Haiku |
 
 **macOS** (Apple silicon and Intel, macOS 10.15+) — Pour copies **Dial.app** to `/Applications`. If you install
@@ -284,9 +292,9 @@ SmartScreen may ask once: **More info → Run anyway**.
 **Linux** (x86_64 and ARM64) — works with **PipeWire** and **PulseAudio**; Dial uses `pactl` / `parec` from
 `pulseaudio-utils` (the packages pull it in).
 
-- Debian / Ubuntu / Mint: `sudo apt install ./Dial_1.0.10_amd64.deb` (ARM64: `…_arm64.deb`).
-- Fedora: `sudo dnf install ./Dial_1.0.10_x86_64.rpm` (ARM64: `…_aarch64.rpm`) · openSUSE:
-  `sudo zypper install --allow-unsigned-rpm ./Dial_1.0.10_x86_64.rpm`.
+- Debian / Ubuntu / Mint: `sudo apt install ./Dial_1.0.11_amd64.deb` (ARM64: `…_arm64.deb`).
+- Fedora: `sudo dnf install ./Dial_1.0.11_x86_64.rpm` (ARM64: `…_aarch64.rpm`) · openSUSE:
+  `sudo zypper install --allow-unsigned-rpm ./Dial_1.0.11_x86_64.rpm`.
 - Any distribution: the AppImage — `chmod +x Dial_*.AppImage && ./Dial_*.AppImage` (needs `libfuse2`).
 
 **ChromeOS** — Dial runs in the Linux development environment (a Debian container), on Intel/AMD and ARM
@@ -299,7 +307,7 @@ Chromebooks, and installs the Linux `.deb`:
 
 **FreeBSD** (amd64, FreeBSD 14.x, with a desktop) — Dial needs `pkg install pulseaudio webkit2-gtk_41`, then the
 two Pour lines above. Or, from the downloaded tarball:
-`tar -xzf Dial_1.0.10_freebsd_amd64.tar.gz && sudo sh install.sh` — it installs to `/usr/local/bin/dial` with a
+`tar -xzf Dial_1.0.11_freebsd_amd64.tar.gz && sudo sh install.sh` — it installs to `/usr/local/bin/dial` with a
 menu entry and icon (`sh install.sh --uninstall` removes them). With PulseAudio running Dial mixes every app;
 without it, Dial controls the OSS master volume.
 
@@ -326,8 +334,8 @@ update asks for your password, like any package install. On FreeBSD, `pour upgra
 
 | Free | Pro monthly | Pro yearly |
 |---|---|---|
-| ₹0 | **₹20 / month** | **₹220 / year** |
-| Per-app volume, the graphic EQ and presets, devices, balance and preamp, the visualiser and all the AI | Boost to 400 %, parametric and per-app EQ, per-app outputs, mono / swap / limiter, enhancers and echo, EQ file import, unlimited presets | Everything in Pro — two months cheaper |
+| ₹0 | **₹110 / month** | **₹1,100 / year** |
+| Per-app volume, the graphic EQ and presets, devices, balance and preamp, the visualiser and all the AI | Boost to 1000 %, parametric and per-app EQ, per-app outputs, mono / swap / limiter, enhancers and echo, EQ file import, unlimited presets | Everything in Pro — two months cheaper |
 
 After paying you get an activation code at once, and Pro turns on by itself if you bought from inside Dial.
 
@@ -352,4 +360,8 @@ modifying or redistributing Dial is not permitted without written permission.
 
 ---
 
-<p align="center"><b>If Dial helps you, please ⭐ star this repository — it helps other people find it.</b></p>
+<p align="center">
+  <a href="https://github.com/JKS-sys/dial-08-oct-2026-releases/stargazers"><img src="https://img.shields.io/github/stars/JKS-sys/dial-08-oct-2026-releases?style=social" alt="Star Dial on GitHub"></a>
+</p>
+
+<p align="center"><b>⭐ If Dial helps you, please <a href="https://github.com/JKS-sys/dial-08-oct-2026-releases">star this repository</a> — one click at the top right, and it helps other people find Dial.</b></p>
