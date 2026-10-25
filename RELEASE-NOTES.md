@@ -2,6 +2,10 @@
 
 Newest first. Downloads: https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest · https://ipconfig.co.network/dial
 
+## Dial 1.0.14 — 25 Oct 2026
+
+- **Studio: Beauty you can see.** Skin smoothing and even tone now work on every camera size (at 1080p and 4K they only touched single-pixel noise, so Beauty looked like it did nothing), smooth skin wherever it is in the picture whether a face is found or not, and start at clearly visible strengths; a slider at 0 switches that part off. Going live on several services at once and recording send exactly the picture you see — every effect and overlay — straight from Dial, without Dial Camera or a Developer ID.
+
 ## Dial 1.0.13 — 25 Oct 2026
 
 - **Studio is much lighter.** The preview no longer copies every camera picture through the processor to look for your face — that alone kept a core busy the whole time. Face finding now runs on the graphics card on a tiny picture, and only when framing, beauty, a background, relight or face exposure needs it. Effects you haven't switched on cost nothing at all, each camera frame is drawn once (not up to four times on a fast screen), and Studio opens with less to load. Leaving Studio gives all its memory and graphics memory back.
