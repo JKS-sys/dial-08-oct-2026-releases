@@ -2,6 +2,11 @@
 
 Newest first. Downloads: https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest · https://ipconfig.co.network/dial
 
+## Dial 1.0.15 — 26 Oct 2026
+
+- **Studio: beauty presets.** The Look tab has a row of one-click looks — Natural, Soft glow, Studio light, Fresh, V-line, Bold and Off — each with a small drawn face, setting every beauty slider at once; moving a slider afterwards shows Custom. Save as preset keeps up to 12 of your own, and any preset answers to a hotkey or OSC `/beauty/preset/N`, with its own sound and scene.
+- **Studio: 23.976, 29.97 and 59.94 fps.** The output, the recording and each live destination can now use the film and broadcast rates beside 24, 25, 30, 50 and 60 — sent to ffmpeg as exact fractions, with keyframes still every 2 seconds. The preview and the frames sent out follow the chosen rate, and the camera is asked for its mode nearest to it.
+
 ## Dial 1.0.14 — 25 Oct 2026
 
 - **Studio: Beauty you can see.** Skin smoothing and even tone now work on every camera size (at 1080p and 4K they only touched single-pixel noise, so Beauty looked like it did nothing), smooth skin wherever it is in the picture whether a face is found or not, and start at clearly visible strengths; a slider at 0 switches that part off. Going live on several services at once and recording send exactly the picture you see — every effect and overlay — straight from Dial, without Dial Camera or a Developer ID.
