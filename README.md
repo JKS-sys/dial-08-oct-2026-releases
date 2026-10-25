@@ -8,10 +8,10 @@
 
 <h1 align="center">Dial</h1>
 
-<p align="center"><b>An AI sound mixer — for macOS, Windows, Linux, ChromeOS and FreeBSD</b></p>
+<p align="center"><b>An AI sound mixer — a Mac app (Apple silicon)</b></p>
 
 <p align="center">
-  Version <b>1.0.11</b> · released 19 Oct 2026 ·
+  Version <b>1.0.12</b> · released 25 Oct 2026 ·
   <a href="https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest">Download</a> ·
   <a href="https://ipconfig.co.network/dial">Website</a> ·
   <a href="RELEASE-NOTES.md">Release notes</a>
@@ -50,7 +50,7 @@ and *An AI sound mixer* types out. Click or press any key to skip it, or turn it
 
 <p align="center"><a href="demos/memory.mp4"><img src="demos/memory.gif" width="760" alt="App Tamer memory: freeing memory with a broom sweep, capping one app's memory and pausing another in the background"></a></p>
 
-**Memory taming** — cap an app's memory (the rest goes to swap on Linux; on macOS it pauses above the limit in the background), pause it in the background or move it to the efficiency cores. Free memory in one click and get warned about RAM, swap and VRAM hogs. <sub>([full-quality MP4](demos/memory.mp4))</sub>
+**Memory taming** — cap an app's memory (it pauses above the limit in the background), pause it in the background or move it to the efficiency cores. Free memory in one click and get warned about RAM, swap and VRAM hogs. <sub>([full-quality MP4](demos/memory.mp4))</sub>
 
 <p align="center"><a href="demos/menu-bar.mp4"><img src="demos/menu-bar.gif" width="760" alt="Choosing menu bar items: adding disk free space, CPU, fan, battery and temperature, then switching between text only and icon with text in the live preview"></a></p>
 
@@ -78,7 +78,7 @@ and *An AI sound mixer* types out. Click or press any key to skip it, or turn it
 
 <p align="center"><a href="demos/right-click.mp4"><img src="demos/right-click.gif" width="760" alt="Right-click menus: an app row's menu with mute, solo, boost, outputs, pin, ignore and per-app EQ; the window menu with every view, presets, recording and settings; and a screen recording's menu"></a></p>
 
-**Right-click everywhere** — every app, device, preset, recording and video has its own menu, and so does the window itself. The Dock icon has a menu too, and Finder gets *Open With → Dial* plus Quick Actions. On Linux, Files, Dolphin and Nemo get the same actions. <sub>([full-quality MP4](demos/right-click.mp4))</sub>
+**Right-click everywhere** — every app, device, preset, recording and video has its own menu, and so does the window itself. The Dock icon has a menu too, and Finder gets *Open With → Dial* plus Quick Actions. <sub>([full-quality MP4](demos/right-click.mp4))</sub>
 
 <p align="center"><a href="demos/resize.mp4"><img src="demos/resize.gif" width="760" alt="The Dial window shrinking from 1200 × 780 to 480 × 360 and back: the sidebar turns into an icon rail, then a tab strip, with nothing overlapping and no scrolling"></a></p>
 
@@ -152,7 +152,7 @@ Every number, unit and bracket keeps its colour in both.
 ## Automate Dial
 
 Dial answers `dial://` links, so Terminal, the macOS Shortcuts app (*Open URLs*), Raycast / Alfred quicklinks, keyboard
-daemons and scripts can drive it — macOS: `open "dial://volume?v=40"`, Linux: `xdg-open "dial://volume?v=40"`.
+daemons and scripts can drive it: `open "dial://volume?v=40"`.
 If Dial isn't running, the link starts it. Every link plays a small sparkle and shows what it did.
 
 | Link | What it does |
@@ -190,7 +190,7 @@ Settings → Automation lists them all with Copy and Try buttons, and builds you
 | 🩺 | **Sound fixer:** balance and preamp | ✓ | ✓ |
 | 🛡️ | **Sound fixer:** mono, left/right swap, limiter | — | ★ |
 | ✨ | **Enhancers** — clarity, voice (dialogue boost), bass, air, exciter and punch (macOS); five one-tap presets; the warmth guard never cuts 120–500 Hz | — | ★ |
-| 🔁 | **Echo** — mix, time (40–1200 ms) and feedback (a single repeat on Linux) | — | ★ |
+| 🔁 | **Echo** — mix, time (40–1200 ms) and feedback | — | ★ |
 | 🔌 | **Auto-restore on reconnect** — when your headphones come back, the apps that were on them move back, with their volume, EQ and effects | ✓ | ✓ |
 | 🌙 | **Starts hidden at login** — only the menu bar icon: no window, no Dock icon, not a sound until you open it | ✓ | ✓ |
 | 🌈 | **Spectrum visualiser** — bars, ring, wave, mirror | ✓ | ✓ |
@@ -214,7 +214,7 @@ Settings → Automation lists them all with Copy and Try buttons, and builds you
 | 🐢 | **App Tamer** — slow, pause in the background or move to efficiency cores; CPU-hog alerts; Time Machine boost | 2 apps | ★ unlimited |
 | 🌡️ | **Thermals** — every sensor with its max, fan speeds, hardware health, alerts by notification and email, CSV logs | ✓ | ✓ |
 | 🌀 | **Fan control** — Auto, Manual, Max and Auto Boost rules | — | ★ |
-| 🖱️ | **Right-click menus** in every view, the Dock menu, Finder *Open With* and Quick Actions (Files / Dolphin / Nemo on Linux) | ✓ | ✓ |
+| 🖱️ | **Right-click menus** in every view, the Dock menu, Finder *Open With* and Quick Actions | ✓ | ✓ |
 | ✨ | **AI:** Dial AI (free, built in), offline quick fixes, GitHub Copilot CLI, GitHub Models, every local server (Ollama, LM Studio, Jan, llama.cpp, GPT4All, KoboldCpp, vLLM, text-generation-webui, Msty, AnythingLLM) and any OpenAI-compatible service | ✓ | ✓ |
 
 Keyboard: Mixer ⌘1 · Equaliser ⌘2 · Devices ⌘3 · Visualiser ⌘4 · Sound Fixer ⌘5 · Recorder ⌘6 · Screen Studio ⌘7 · Monitor ⌘8 · App Tamer ⌘9 · Thermals ⇧⌘T · Battery ⌥⌘B · Displays ⌥⌘D · AI panel ⌘J.
@@ -242,100 +242,53 @@ Each screenshot follows your theme (dark or light).
 
 ## Install
 
-Every system installs Dial with **[Pour](https://ipconfig.co.network/pour)** — one line to get Pour, one to get Dial.
+**Dial is a Mac app (Apple silicon — M1 and later).** One download, and Dial keeps itself up to date.
 
-**macOS, Linux, ChromeOS and FreeBSD** — in a terminal:
+With **[Pour](https://ipconfig.co.network/pour)** — one line to get Pour, one to get Dial:
 
 ```sh
 curl -fsSL https://ipconfig.co.network/pour/install | sh
 pour install --cask dial
 ```
 
-**Windows 10 / 11** (x64 and ARM64) — in PowerShell, get the single-file Pour and let it install Dial
-(on an ARM PC use `pour-windows-arm64.exe`):
-
-```powershell
-iwr https://ipconfig.co.network/pour/dl/pour-windows-x86_64.exe -OutFile pour.exe; .\pour.exe install --cask dial
-```
-
-Or download the installer for your system directly (version 1.0.11; every file is also on the
+Or download it directly (version 1.0.12; also on the
 [latest release page](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest)):
 
 | System | CPU | Download |
 |---|---|---|
-| macOS 10.15+ | Apple silicon | [Dial_1.0.11_aarch64.dmg](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.11/Dial_1.0.11_aarch64.dmg) |
-| macOS 10.15+ | Intel | [Dial_1.0.11_x64.dmg](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.11/Dial_1.0.11_x64.dmg) |
-| Windows 10 / 11 | x64 | [Dial_1.0.11_x64-setup.exe](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.11/Dial_1.0.11_x64-setup.exe) |
-| Windows 10 / 11 | ARM64 | [Dial_1.0.11_arm64-setup.exe](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.11/Dial_1.0.11_arm64-setup.exe) |
-| Debian / Ubuntu / Mint | x86_64 · ARM64 | [amd64 .deb](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.11/Dial_1.0.11_amd64.deb) · [arm64 .deb](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.11/Dial_1.0.11_arm64.deb) |
-| Fedora / openSUSE | x86_64 · ARM64 | [x86_64 .rpm](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.11/Dial_1.0.11_x86_64.rpm) · [aarch64 .rpm](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.11/Dial_1.0.11_aarch64.rpm) |
-| Linux, any distribution | x86_64 · ARM64 | [amd64 AppImage](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.11/Dial_1.0.11_amd64.AppImage) · [arm64 AppImage](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.11/Dial_1.0.11_arm64.AppImage) |
-| ChromeOS (Linux development environment) | x86_64 · ARM64 | the Linux `.deb` for the Chromebook's CPU (above) |
-| FreeBSD 14.x | amd64 | [Dial_1.0.11_freebsd_amd64.tar.gz](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.11/Dial_1.0.11_freebsd_amd64.tar.gz) |
-| Haiku | — | not possible — Tauri has no WebView backend for Haiku |
+| macOS 10.15+ (per-app audio: 14.4+) | Apple silicon | [Dial_1.0.12_aarch64.dmg](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.12/Dial_1.0.12_aarch64.dmg) |
 
-**macOS** (Apple silicon and Intel, macOS 10.15+) — Pour copies **Dial.app** to `/Applications`. If you install
-from the DMG by hand instead, run this once before the first launch (Dial is self-signed, not notarized):
+Pour copies **Dial.app** to `/Applications`. If you install from the DMG by hand instead, run this once before the
+first launch (Dial is self-signed, not notarized):
 
 ```bash
 xattr -cr /Applications/Dial.app
 ```
 
 Per-app volume, per-app EQ and the equaliser use Core Audio process taps, which need **macOS 14.4 or later**
-and the **System Audio Recording Only** permission (System Settings → Privacy & Security) — Dial asks once.
-On older macOS, Dial controls the master volume and devices.
+and the **System Audio Recording Only** permission (System Settings → Privacy & Security) — Dial asks once and
+keeps the answer across updates. On older macOS, Dial controls the master volume and devices.
 
-**Windows** (10 and 11, x64 and ARM64) — the setup file installs Dial for your account and adds it to the Start
-menu; it fetches Microsoft's WebView2 if the PC does not have it yet. The installer is not code-signed, so
-SmartScreen may ask once: **More info → Run anyway**.
+Dial updates itself: when a new version is out it offers to install it and restart, and checks the update's
+signature first.
 
-**Linux** (x86_64 and ARM64) — works with **PipeWire** and **PulseAudio**; Dial uses `pactl` / `parec` from
-`pulseaudio-utils` (the packages pull it in).
-
-- Debian / Ubuntu / Mint: `sudo apt install ./Dial_1.0.11_amd64.deb` (ARM64: `…_arm64.deb`).
-- Fedora: `sudo dnf install ./Dial_1.0.11_x86_64.rpm` (ARM64: `…_aarch64.rpm`) · openSUSE:
-  `sudo zypper install --allow-unsigned-rpm ./Dial_1.0.11_x86_64.rpm`.
-- Any distribution: the AppImage — `chmod +x Dial_*.AppImage && ./Dial_*.AppImage` (needs `libfuse2`).
-
-**ChromeOS** — Dial runs in the Linux development environment (a Debian container), on Intel/AMD and ARM
-Chromebooks, and installs the Linux `.deb`:
-
-1. **Settings → Advanced → Developers → Linux development environment → Turn on** (a few minutes the first time).
-2. Open the **Terminal** app and run the two Pour lines above. Or by hand: `dpkg --print-architecture` says
-   `amd64` (Intel/AMD) or `arm64` (ARM) — download that `.deb`, move it to **Linux files** and double-click it.
-3. Open Dial from the launcher (**Linux apps**). It mixes the sound of the apps in the Linux container.
-
-**FreeBSD** (amd64, FreeBSD 14.x, with a desktop) — Dial needs `pkg install pulseaudio webkit2-gtk_41`, then the
-two Pour lines above. Or, from the downloaded tarball:
-`tar -xzf Dial_1.0.11_freebsd_amd64.tar.gz && sudo sh install.sh` — it installs to `/usr/local/bin/dial` with a
-menu entry and icon (`sh install.sh --uninstall` removes them). With PulseAudio running Dial mixes every app;
-without it, Dial controls the OSS master volume.
-
-**Haiku** — not possible: Tauri has no WebView backend for Haiku, so there is no Haiku build.
-
-Dial updates itself on macOS, Windows and Linux (AppImage, `.deb` and `.rpm`; x86_64 and ARM64): when a new
-version is out it offers to install it and restart, and checks the update's signature first. A `.deb` or `.rpm`
-update asks for your password, like any package install. On FreeBSD, `pour upgrade` (or the new tarball) updates it.
+**Intel Macs, Windows, Linux, ChromeOS and FreeBSD** — not supported any more. The installers published before
+1.0.12 stay on the [releases page](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases) but do not get
+updates.
 
 ## Platforms
 
 | System | CPU | Download | Updates itself |
 |---|---|---|---|
-| macOS 10.15+ (per-app audio: 14.4+) | Apple silicon · Intel | `.dmg` | yes |
-| Windows 10 / 11 | x64 · ARM64 | `-setup.exe` (NSIS) | yes |
-| Linux, any distribution | x86_64 · ARM64 | `.AppImage` | yes |
-| Debian / Ubuntu / Mint | x86_64 · ARM64 | `.deb` | yes |
-| Fedora / openSUSE | x86_64 · ARM64 | `.rpm` | yes |
-| ChromeOS (Linux development environment) | x86_64 · ARM64 | the Linux `.deb` | yes |
-| FreeBSD 14.x | amd64 | `_freebsd_amd64.tar.gz` | no — `pour upgrade` or the new tarball |
-| Haiku | — | not possible (no WebView backend for Haiku) | — |
+| macOS 10.15+ (per-app audio: 14.4+) | Apple silicon (M1 and later) | `Dial_<v>_aarch64.dmg` | yes |
+| Intel Mac · Windows · Linux · ChromeOS · FreeBSD | — | earlier builds on the releases page only | no |
 
 ## Pricing
 
 | Free | Pro monthly | Pro yearly |
 |---|---|---|
-| ₹0 | **₹110 / month** | **₹1,100 / year** |
-| Per-app volume, the graphic EQ and presets, devices, balance and preamp, the visualiser and all the AI | Boost to 1000 %, parametric and per-app EQ, per-app outputs, mono / swap / limiter, enhancers and echo, EQ file import, unlimited presets | Everything in Pro — two months cheaper |
+| ₹0 | **₹1,000 / month** | **₹6,000 / year** |
+| Per-app volume, the graphic EQ and presets, devices, balance and preamp, the visualiser and all the AI | Boost to 1000 %, parametric and per-app EQ, per-app outputs, mono / swap / limiter, enhancers and echo, EQ file import, unlimited presets | Everything in Pro — half the monthly price over a year |
 
 After paying you get an activation code at once, and Pro turns on by itself if you bought from inside Dial.
 
