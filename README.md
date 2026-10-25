@@ -11,7 +11,7 @@
 <p align="center"><b>An AI sound mixer — a Mac app (Apple silicon)</b></p>
 
 <p align="center">
-  Version <b>1.0.14</b> · released 25 Oct 2026 ·
+  Version <b>1.0.15</b> · released 26 Oct 2026 ·
   <a href="https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest">Download</a> ·
   <a href="https://ipconfig.co.network/dial">Website</a> ·
   <a href="RELEASE-NOTES.md">Release notes</a>
@@ -251,12 +251,12 @@ curl -fsSL https://ipconfig.co.network/pour/install | sh
 pour install --cask dial
 ```
 
-Or download it directly (version 1.0.14; also on the
+Or download it directly (version 1.0.15; also on the
 [latest release page](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest)):
 
 | System | CPU | Download |
 |---|---|---|
-| macOS 10.15+ (per-app audio: 14.4+) | Apple silicon | [Dial_1.0.14_aarch64.dmg](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.14/Dial_1.0.14_aarch64.dmg) |
+| macOS 10.15+ (per-app audio: 14.4+) | Apple silicon | [Dial_1.0.15_aarch64.dmg](https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.15/Dial_1.0.15_aarch64.dmg) |
 
 Pour copies **Dial.app** to `/Applications`. If you install from the DMG by hand instead, run this once before the
 first launch (Dial is self-signed, not notarized):
