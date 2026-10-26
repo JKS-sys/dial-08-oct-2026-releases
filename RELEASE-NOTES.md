@@ -2,6 +2,18 @@
 
 Newest first. Downloads: https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest · https://ipconfig.co.network/dial
 
+## Dial 1.0.16 — 26 Oct 2026
+
+- **Studio: Beauty you can see on the Mac.** The skin smoothing reaches about 1.5× further (4.5 px at 720p, 6.7 at 1080p) with a stronger response, and Even tone now gently lifts the skin, so Studio light reads clearly smoother and brighter than Natural. A background shader compile can no longer stall on WKWebView: if the GPU never says it is done, Dial checks the program itself after 400 ms, and a variant that fails is reported instead of leaving the plain picture on. When Beauty is on but can't run (safe mode, no GPU, a failed shader) the preview says so. A new **Compare** button: hold it to see the camera as it comes in on the left and Dial's picture on the right. The preview no longer has black bars on both sides in wide windows.
+- **Studio: every destination can be removed.** Each card (Custom RTMP too) has its own Remove button beside ⋯, and ⋯ → Remove; saved lists with repeated, missing or copied ids are cleaned once on load, and new ids never repeat.
+- **Fewer permission prompts after updates.** Every release now also lists each signed piece of Dial (the app, the audio engine, anything inside) with its signature, and the release stops if the audio engine was ever signed in a way that changes with each build.
+- **Lighter in the background.** Five more background jobs (saving settings, the idle-app check, system notifications, crash reports) share Dial's one timer thread instead of keeping a thread each, and the main window no longer redraws its header 15 times a second while idle; the level meters only redraw when the level really changes.
+- **More right-click.** Each app: Quieter by 10 % and Louder by 10 %. Outputs ▸ Balance ▸: Mono, Swap left and right and Limiter. Quick actions: Copy the devices as text and Unmute everything (apps, output and microphone). In the menu bar, the Dock and the window.
+- **Six more Finder actions:** Add an Echo, Make It Sound Like an Old Radio, Make the Stereo Wider, Make a Nightcore Version, Mirror the Video and Make the Video Black and White — each with its own sound and picture.
+- **Four more window layouts:** Neon, Pills, Stripes and Paper (28 in all), each with a preview, a sound and a scene.
+- **More colour in code and logs:** links, file paths, hex numbers, comments and units now each have their own colour; six more drawings.
+- **Smaller app:** SHA-256 and signature checks now use the crypto Dial already ships, so three libraries are gone.
+
 ## Dial 1.0.15 — 26 Oct 2026
 
 - **Studio: beauty presets.** The Look tab has a row of one-click looks — Natural, Soft glow, Studio light, Fresh, V-line, Bold and Off — each with a small drawn face, setting every beauty slider at once; moving a slider afterwards shows Custom. Save as preset keeps up to 12 of your own, and any preset answers to a hotkey or OSC `/beauty/preset/N`, with its own sound and scene.
