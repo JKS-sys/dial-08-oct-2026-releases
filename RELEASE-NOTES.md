@@ -2,6 +2,10 @@
 
 Newest first. Downloads: https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest · https://ipconfig.co.network/dial
 
+## Dial 1.0.17 — 26 Oct 2026
+
+- **Boost up to 100000 %.** With Pro (Mac and Linux), any app can now be turned up to 100000 % (1000 times, +60 dB), five times louder than before. The popover's chevrons go 100 → 200 → 1000 → 10000 → 100000 % and back to 100 %; the menus, the Dock, the tray, hotkeys, links, Quick fixes and Dial AI all reach the new top. The boost guard still keeps the sound under full scale with no clipping, but very high boosts can hurt ears and speakers, so turn it up slowly.
+
 ## Dial 1.0.16 — 26 Oct 2026
 
 - **Studio: Beauty you can see on the Mac.** The skin smoothing reaches about 1.5× further (4.5 px at 720p, 6.7 at 1080p) with a stronger response, and Even tone now gently lifts the skin, so Studio light reads clearly smoother and brighter than Natural. A background shader compile can no longer stall on WKWebView: if the GPU never says it is done, Dial checks the program itself after 400 ms, and a variant that fails is reported instead of leaving the plain picture on. When Beauty is on but can't run (safe mode, no GPU, a failed shader) the preview says so. A new **Compare** button: hold it to see the camera as it comes in on the left and Dial's picture on the right. The preview no longer has black bars on both sides in wide windows.
