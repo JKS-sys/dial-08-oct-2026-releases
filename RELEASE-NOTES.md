@@ -2,6 +2,22 @@
 
 Newest first. Downloads: https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest · https://ipconfig.co.network/dial
 
+## Dial 1.0.21 — 02 Nov 2026
+
+- **Stripchat as a destination, and every destination with its own encoder settings.** Stripchat is in the destination list with its external-broadcasting ingest filled in, and Dial sends it exactly what its OBS page asks for: H.264 Main, zerolatency, no B-frames, 2 s keyframes, at most 1080p 30 and 6 Mb/s, AAC 128 kb/s at 48 kHz — on its own encode, scaled down on its own branch, so YouTube or a recording can stay at 1440p 60. Each destination card now has its own profile, keyframe gap (1–5 s), largest picture size, sound bitrate and a Low-latency switch.
+
+- **"External broadcasting software is offline" with the microphone on — fixed.** A microphone that started late or left gaps kept ffmpeg's FLV muxer waiting for sound, so nothing reached the service and it showed the broadcaster offline. The microphone's sound is now made continuous (gaps filled with silence, drift stretched away) and the muxer never holds the picture back more than half a second waiting for it.
+
+- **The stream follows the camera much more closely.** Live encodes are now low-latency by default — zerolatency, no B-frames, no lookahead and a one-second rate buffer (it was two B-frames, a 10-frame lookahead and a two-second buffer); recordings keep the higher-quality encode.
+
+- **Streaming no longer needs Dial's window open.** WebKit's background throttling is off for the Studio window and App Nap is disabled, so a hidden window keeps composing frames at full rate; closing the window while live, recording or with Dial Camera on only hides it — the stream goes on until you stop it.
+
+- **A real cut-out for the background (blur, colour, picture).** Apple's Vision person segmentation now draws the outline — hair, shoulders, hands, a second person — in place of the old head-and-torso guess from the face box; the matte is smoothed between frames so it doesn't flicker, and the background works even when no face is found.
+
+- **The menu-bar popover is far lighter while it is open.** Its rainbow strip and the Enhance icon's twinkle now run on the compositor instead of repainting every frame: popover idle CPU 20 % → 6 % and style recalcs 60/s → 1.5/s (40 apps: 95 % → 76 %), and its first 5 s of work 675 ms → 210 ms. Sounds and scenes now load in the first idle moment after the window paints, out of the way of start-up.
+
+- **The Owner Panel opens only on the owner's Mac.** The second Mac (`VXPQCY1631`) is no longer an owner: it runs Dial exactly as a customer does (Free, Pro by code or subscription), for testing. The baked owner list, the release's default `OWNER_SERIALS` and the Worker all hold the one owner Mac; a test makes sure the test Mac never becomes an owner by accident.
+
 ## Dial 1.0.20 — 01 Nov 2026
 
 - **Studio: a much stronger live stream.** The picture used to reach ffmpeg as a JPEG of every frame, decoded again on the way out (half a CPU core at 720p before any encoding), on a 25-frame clock that made 30 frames a second into 36 (recordings ran 20 % long and the sound drifted), with crushed blacks, x264 only, one bitrate for every service and no way to see why a stream looked bad. Now the GPU hands Dial the raw picture (NV12, the way the encoders want it — no JPEG, nothing to decode, the right colour range), Dial's writer sends it to ffmpeg on a steady clock (no doubled or dropped frames), the Mac's hardware encoder (VideoToolbox H.264, or HEVC for YouTube and custom servers) does the encoding with keyframes every 2 s and a proper buffer — x264 stands in by itself if it fails — and the sound goes up with the picture (128 … 320 kb/s). The quality picker now has 1440p 60 and 4K 60 and uses the services' own bitrates (720p 4500, 1080p60 9000, 4K60 40000); each destination gets what its service takes (Twitch never more than 6000), a **Test the upload** button measures your upload and the time to reach the service and says which quality fits (one click to use it), and the bitrate lowers itself on a congested connection and comes back up when it clears. The Live tab shows the encoder, how the frames go, repeated and skipped frames, congestion, restarts and a stream log; Encoder, Codec, Frames and Adaptive bitrate pickers are new. Measured: ffmpeg's CPU 47 % → 38 % of a core before encoding at 720p30, 360 frames for 12 s instead of 432.
