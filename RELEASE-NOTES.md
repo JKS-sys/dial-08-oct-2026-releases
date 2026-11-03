@@ -2,6 +2,14 @@
 
 Newest first. Downloads: https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest · https://ipconfig.co.network/dial
 
+## Dial 1.0.22 — 03 Nov 2026
+
+- **The App Store build meets App Review's rules.** It no longer asks for the network-server entitlement (the Studio's phone remote and OSC control are off in that build, with a sentence saying so), and it no longer links the temperature library's private IOHID calls — temperatures there come from the SMC only. `update.sh --appstore` now refuses to upload a build that has either. The website build is unchanged.
+
+- **Custom RTMP streams carry their sound.** With no microphone picked, the stream used to go out silent; it now records the Mac's default input ("Stream sound: none" still makes it silent on purpose). A Custom RTMP server also gets 128 kb/s AAC by default — many ingests drop sound above that while still showing the picture; the card's Sound setting can raise it.
+
+- **Fewer built-in streaming services.** Studio's destination list is back to YouTube, Twitch, Facebook, Kick and Custom RTMP. Any other RTMP service goes on a Custom RTMP card, with its own encoder settings on the card.
+
 ## Dial 1.0.21 — 02 Nov 2026
 
 - **Stripchat as a destination, and every destination with its own encoder settings.** Stripchat is in the destination list with its external-broadcasting ingest filled in, and Dial sends it exactly what its OBS page asks for: H.264 Main, zerolatency, no B-frames, 2 s keyframes, at most 1080p 30 and 6 Mb/s, AAC 128 kb/s at 48 kHz — on its own encode, scaled down on its own branch, so YouTube or a recording can stay at 1440p 60. Each destination card now has its own profile, keyframe gap (1–5 s), largest picture size, sound bitrate and a Low-latency switch.
