@@ -2,6 +2,12 @@
 
 Newest first. Downloads: https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest · https://ipconfig.co.network/dial
 
+## Dial 1.0.23 — 03 Nov 2026
+
+- **Going live again after Stop connects again.** Right after Stop, a service can still hold the last connection for a few seconds and refuse the new one; Dial used to leave that destination out at once, and with one destination the stream ended. A refused destination is now tried again in a fresh connection after 5, 15 and 30 s, and only left out if it still refuses (a wrong key). A test streams to a server that refuses at first and checks the stream reaches it.
+
+- **No microphone no longer spoils the stream.** On a Mac with no microphone (a Mac Studio with nothing plugged in), or when the microphone can't be opened, the stream now goes on with silence and says so, instead of failing.
+
 ## Dial 1.0.22 — 03 Nov 2026
 
 - **The App Store build meets App Review's rules.** It no longer asks for the network-server entitlement (the Studio's phone remote and OSC control are off in that build, with a sentence saying so), and it no longer links the temperature library's private IOHID calls — temperatures there come from the SMC only. `update.sh --appstore` now refuses to upload a build that has either. The website build is unchanged.
