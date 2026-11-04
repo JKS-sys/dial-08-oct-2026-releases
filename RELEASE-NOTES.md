@@ -2,6 +2,11 @@
 
 Newest first. Downloads: https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest · https://ipconfig.co.network/dial
 
+## Dial 1.0.25 — 04 Nov 2026
+
+- **Releases need no .env.** Every key is read from the dashboard's vaults (Dial's own and the shared one, at their new address). The only thing a Mac needs is the vault key: `update.sh` asks for it once and keeps it in the login keychain. A `.env` still works and still wins. `bash scripts/vault-files.sh` puts the signing files into Dial's vault once (the provisioning profiles and the App Store Connect key, as base64), so no Mac needs copied folders either.
+- A new Mac needs no key either: signed in with `gh auth login`, the release opens the vault with your GitHub sign-in.
+
 ## Dial 1.0.24 — 04 Nov 2026
 
 - **The boost percentage in the menu-bar popover is readable.** A big boost used to be squeezed into the narrow column at half size (2,000,000 % came out about 6 px tall). From 10,000 % it now shows in short form at full size, like 12K % or 2M %, with the exact value on hover.
