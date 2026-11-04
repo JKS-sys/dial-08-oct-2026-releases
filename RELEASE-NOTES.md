@@ -2,6 +2,32 @@
 
 Newest first. Downloads: https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest · https://ipconfig.co.network/dial
 
+## Dial 1.0.24 — 04 Nov 2026
+
+- **The boost percentage in the menu-bar popover is readable.** A big boost used to be squeezed into the narrow column at half size (2,000,000 % came out about 6 px tall). From 10,000 % it now shows in short form at full size, like 12K % or 2M %, with the exact value on hover.
+
+- **File paths from another Mac.** Profile and key paths written on a different Mac (`/Users/<someone>/…`) now resolve on this one: the same path under this Mac's home folder, else the same file name in Signing, Downloads, Desktop, Documents, the key folders or `~/Library/MobileDevice/Provisioning Profiles`.
+
+- **The App Store Connect key on any Mac.** A release no longer stops when `APPLE_API_KEY_PATH` names a file from another Mac: it looks where Apple's tools look (`~/.appstoreconnect/private_keys`, `~/private_keys`, Downloads…), or writes the key from `APPLE_API_KEY_P8` in the vault to a private file in the build cache.
+
+- **A new Mac sets itself up from Pour.** The release doctor now installs Rust with Pour (`rustup` and the stable toolchain) when the Mac has none, instead of stopping with a `curl | sh` line, and a broken npm is first reinstalled with Pour (a fresh `node@22`) before anything else is tried.
+
+- **Dial Camera keeps its beauty and stops stuttering.** While Dial Camera was on, every frame was compressed to JPEG in the window and decoded again in the camera, which fought the beauty pass for time. The face finder fell behind, and the face effects kept dropping out, so the plain camera showed through. Dial Camera now takes the GPU's own picture (NV12, converted by VideoToolbox, letterboxed) beside a raw stream, with no JPEG on either side. A briefly missed face is held for 2.5 s instead of 1 s, so a busy moment no longer switches the face effects off.
+
+- **Dial Camera in the Mac App Store version.** The App Store build now carries Dial Camera too (`network.co.ipconfig.dial.store.camera`, sandboxed, with its own Mac App Store profile in `APPLE_STORE_CAMERA_PROFILE`). Without that profile the build goes on without it, and says so.
+
+- **Release keys from the dashboard vault.** `update.sh` and `update.sh --appstore` now read Dial's keys from the ipconfig dashboard's encrypted vault (`/api/v1/owner/vault/export?app=dial`), so the Mac's `.env` needs only `APPS_API_KEY`. A key that `.env` sets still wins, the key travels in a header (never on the command line), values never touch the screen, and the temporary copy is deleted at once. `DIAL_VAULT=0` releases from `.env` alone.
+
+- **Custom RTMP connects.** A Custom RTMP card now sends what nearly every RTMP ingest takes (the same as OBS's generic settings): H.264 Main, at most 1080p 30 and 6 Mb/s, AAC 128 kb/s, no B-frames. It used to send the output's full quality (up to 1440p 60, High profile), and some servers refused it. The card's own Size, Frame rate, Video bitrate and Profile still override each one.
+
+- **Dial Camera and the stream keep going when you leave the Studio tab.** The Studio used to close with its tab, which stopped the camera, Dial Camera and the stream until you came back. While the picture is going out (live, recording or Dial Camera on) the Studio now keeps running in the background on any tab.
+
+- **Security updates.** The TLS library Dial uses for every HTTPS connection (rustls 0.23.46, webpki 0.103.16 and the root certificates) and the updater plugin (2.14, with zip 9) are on their fixed versions; the developer tools (wrangler) too. `cargo audit` and `npm audit` report no vulnerabilities.
+
+- **Crash reports without the noise.** "ResizeObserver loop completed with undelivered notifications" is a browser note, not a crash: older Dials still sent it, so the server now drops it and the hourly clean-up removes the ones already stored; old copies on the Mac are deleted too.
+
+- **Release fixes.** The R2 clean-up no longer guesses 2,024 file names when the bucket can't be listed (it took an hour and miscounted); the App Store build checks the finished package for quarantine flags before upload.
+
 ## Dial 1.0.23 — 03 Nov 2026
 
 - **Going live again after Stop connects again.** Right after Stop, a service can still hold the last connection for a few seconds and refuse the new one; Dial used to leave that destination out at once, and with one destination the stream ended. A refused destination is now tried again in a fresh connection after 5, 15 and 30 s, and only left out if it still refuses (a wrong key). A test streams to a server that refuses at first and checks the stream reaches it.
