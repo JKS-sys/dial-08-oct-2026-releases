@@ -2,6 +2,11 @@
 
 Newest first. Downloads: https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest · https://ipconfig.co.network/dial
 
+## Dial 1.0.26 — 05 Nov 2026
+
+- **Dispatch tab** (⌥⌘N): every network link of the Mac (Wi-Fi, Ethernet, an iPhone by USB…) as one SOCKS5 proxy with dispatch-proxy. Pick the links and a weight each, Start, and the Mac’s SOCKS proxy points at it; Stop or quitting Dial turns it off. Install sets up dispatch for you. Not in the App Store version.
+- App Store upload: Xcode’s retired iTMSTransporter is never used; Transporter is installed from the Mac App Store when missing.
+
 ## Dial 1.0.25 — 04 Nov 2026
 
 - **Releases need no .env.** Every key is read from the dashboard's vaults (Dial's own and the shared one, at their new address). The only thing a Mac needs is the vault key: `update.sh` asks for it once and keeps it in the login keychain. A `.env` still works and still wins. `bash scripts/vault-files.sh` puts the signing files into Dial's vault once (the provisioning profiles and the App Store Connect key, as base64), so no Mac needs copied folders either.
