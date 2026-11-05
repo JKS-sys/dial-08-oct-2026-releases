@@ -1,14 +1,14 @@
 {
-  "version": "1.0.26",
-  "notes": "## Dial 1.0.26 — 05 Nov 2026\n\n- **Dispatch tab** (⌥⌘N): every network link of the Mac (Wi-Fi, Ethernet, an iPhone by USB…) as one SOCKS5 proxy with dispatch-proxy. Pick the links and a weight each, Start, and the Mac’s SOCKS proxy points at it; Stop or quitting Dial turns it off. Install sets up dispatch for you. Not in the App Store version.\n- App Store upload: Xcode’s retired iTMSTransporter is never used; Transporter is installed from the Mac App Store when missing.\n\n### Install\n\nDial is a Mac app (Apple silicon — M1 and later). One download: `Dial_<version>_aarch64.dmg`.\n\n- **With Pour:** `curl -fsSL https://ipconfig.co.network/pour/install | sh` then `pour install --cask dial`\n- **By hand:** open the DMG and drag Dial into Applications. First launch: `xattr -cr /Applications/Dial.app` (Dial is self-signed, not notarized).\n- Per-app volume and the equaliser need macOS 14.4 or later.\n- Earlier Windows, Linux, ChromeOS, FreeBSD and Intel Mac builds stay on the releases page but are no longer updated.",
-  "pub_date": "2026-11-05T02:51:51Z",
+  "version": "1.0.27",
+  "notes": "## Dial 1.0.27 — 05 Nov 2026\n\n- **Dispatch: Install works when Dial is opened from the Finder.** It now finds Rust and Pour through your login shell, installs Rust with Pour when it is missing, and shows why if an install does not finish.\n\n### Install\n\nDial is a Mac app (Apple silicon — M1 and later). One download: `Dial_<version>_aarch64.dmg`.\n\n- **With Pour:** `curl -fsSL https://ipconfig.co.network/pour/install | sh` then `pour install --cask dial`\n- **By hand:** open the DMG and drag Dial into Applications. First launch: `xattr -cr /Applications/Dial.app` (Dial is self-signed, not notarized).\n- Per-app volume and the equaliser need macOS 14.4 or later.\n- Earlier Windows, Linux, ChromeOS, FreeBSD and Intel Mac builds stay on the releases page but are no longer updated.",
+  "pub_date": "2026-11-05T05:43:25Z",
   "platforms": {
     "darwin-aarch64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUSUVLMDNkb2V5SDhkYnNGb1M2elNBUXhiZE5pd011MjJ4cThsUzZvNVF5WWFHb0lNUnRBcHBKcG84ejZyUHBXM3ZiWTAwWU5HUzVKNDlkOWxGS0NCRW5KWGFJOHZwalEwPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzODQ3MDY1CWZpbGU6RGlhbC5hcHAudGFyLmd6ClFQc1dsTjdkekhjR090RHdFTG9DUHd5N29mRitBam1id2hoV0trUGlzSEJ0RjFVaGZEUi9Sa2FySUFVSjFld0dXWUdqSy91TVAzLzBrcm85WHVTV0F3PT0K",
-      "url": "https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.26/Dial_aarch64.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUSUVLMDNkb2V5SDJwMkdFczhLMUpSbjBYc3lvdFNJeEFXY0NzR2VsT2gyQmxqV1E5MTVXdmt2YzhjQWVDdVVnZXN5eitJN0ZjMDRiTU8rTktIQ0hsRlNBMHNhcUdZSGd3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzODU3MzYwCWZpbGU6RGlhbC5hcHAudGFyLmd6Cm45dzl3WHBPYmlGakFHMjZVaFgyM1F2dzhTUHNva1JjUHc4ZUt1TWFCT096ait4TWtoYjZZZkxBd3cxbC91akhsVW9tL1BhaFZIa2Z0d09lV0pPRUFBPT0K",
+      "url": "https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.27/Dial_aarch64.app.tar.gz"
     }
   },
   "downloads": {
-    "mac_arm": "Dial_1.0.26_aarch64.dmg"
+    "mac_arm": "Dial_1.0.27_aarch64.dmg"
   }
 }
