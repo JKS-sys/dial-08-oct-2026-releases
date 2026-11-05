@@ -2,6 +2,10 @@
 
 Newest first. Downloads: https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest · https://ipconfig.co.network/dial
 
+## Dial 1.0.27 — 05 Nov 2026
+
+- **Dispatch: Install works when Dial is opened from the Finder.** It now finds Rust and Pour through your login shell, installs Rust with Pour when it is missing, and shows why if an install does not finish.
+
 ## Dial 1.0.26 — 05 Nov 2026
 
 - **Dispatch tab** (⌥⌘N): every network link of the Mac (Wi-Fi, Ethernet, an iPhone by USB…) as one SOCKS5 proxy with dispatch-proxy. Pick the links and a weight each, Start, and the Mac’s SOCKS proxy points at it; Stop or quitting Dial turns it off. Install sets up dispatch for you. Not in the App Store version.
