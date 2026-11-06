@@ -2,6 +2,13 @@
 
 Newest first. Downloads: https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest · https://ipconfig.co.network/dial
 
+## Dial 1.0.32 — 06 Nov 2026
+
+- **Export as .md or .txt** next to CSV in every Owner panel table. Crash reports come out as a readable report: one section per crash with its kind, version, system and hits, then where it happened, the whole stack and the symbolise command.
+- **Dispatch finds every connected line.** It only looked at Ethernet / Wi-Fi ports named the usual way, so a second landline on PPPoE (ppp0) or an adapter macOS lists differently was missing. It now lists every link that is up with an internet address (VPN tunnels, AirDrop and links without an address are left out).
+- **Fixed a crash on the Studio's Camera tab** in 1.0.31 (“Can't find variable: cs”) — the new Center Stage switch's state was kept outside the tab that draws it.
+- **The internet never stops with Dispatch.** If dispatch stopped by itself, or Dial quit, crashed or updated while it ran, the Mac stayed pointed at a proxy that was gone and nothing loaded. Dial now turns the SOCKS proxy off the moment dispatch stops, puts it back at the next launch if it was left on, and only ever turns off its own proxy (one you set up yourself is left alone).
+
 ## Dial 1.0.31 — 06 Nov 2026
 
 - **The camera no longer zooms in by itself.** macOS Center Stage (on an iPhone used as a webcam, a Studio Display and other cameras that have it) zoomed in and followed you on the preview, the stream and recordings. It is now off for Dial unless you turn it on with the new Center Stage switch on the Studio’s Camera tab.
