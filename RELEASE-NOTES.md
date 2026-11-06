@@ -2,6 +2,10 @@
 
 Newest first. Downloads: https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest · https://ipconfig.co.network/dial
 
+## Dial 1.0.31 — 06 Nov 2026
+
+- **The camera no longer zooms in by itself.** macOS Center Stage (on an iPhone used as a webcam, a Studio Display and other cameras that have it) zoomed in and followed you on the preview, the stream and recordings. It is now off for Dial unless you turn it on with the new Center Stage switch on the Studio’s Camera tab.
+
 ## Dial 1.0.30 — 06 Nov 2026
 
 - **New log boxes** for the stream log, the recorder log and the Dispatch log: every line marked and coloured by what it says (errors red, warnings orange, done green, info sky), and inside each line numbers, units, times, paths, links, quoted text, keys and each kind of bracket in its own colour (no pink). A drawn icon that writes itself (with a heartbeat while live), new lines slide in, error lines flash, counts of errors / warnings / successes in the header, one-click copy, and a soft sound when an error or success line arrives.
