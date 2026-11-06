@@ -2,6 +2,13 @@
 
 Newest first. Downloads: https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest · https://ipconfig.co.network/dial
 
+## Dial 1.0.28 — 06 Nov 2026
+
+- **Camera: no more trail of hands when you move.** Anti-flicker and noise reduction mixed half of the previous frame into every new one, so a moving hand left fading copies behind it. Both now leave moving parts of the picture alone and only smooth what is still; anti-flicker evens out brightness only.
+- **Menu-bar popover: big boosts are readable.** The slider’s knob sat on top of the number (200M %); the slider now stays in its own space and the number is larger.
+- **Dispatch tab scrolls again.** Its status check ran on the app’s main thread and froze the window every 3 s; it now runs in the background, reads the network links at most every 10 s and pauses while Dial is hidden.
+- **Updates stop asking for the administrator password.** A Dial.app owned by the system made every update ask “allow administrator access for a script started by Dial”. Dial now gives the app to you once — silently when the Dial helper is installed, otherwise with one last prompt — and every later update installs without asking.
+
 ## Dial 1.0.27 — 05 Nov 2026
 
 - **Dispatch: Install works when Dial is opened from the Finder.** It now finds Rust and Pour through your login shell, installs Rust with Pour when it is missing, and shows why if an install does not finish.
