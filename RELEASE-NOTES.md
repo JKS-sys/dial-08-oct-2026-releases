@@ -2,6 +2,14 @@
 
 Newest first. Downloads: https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest · https://ipconfig.co.network/dial
 
+## Dial 1.0.30 — 06 Nov 2026
+
+- **New log boxes** for the stream log, the recorder log and the Dispatch log: every line marked and coloured by what it says (errors red, warnings orange, done green, info sky), and inside each line numbers, units, times, paths, links, quoted text, keys and each kind of bracket in its own colour (no pink). A drawn icon that writes itself (with a heartbeat while live), new lines slide in, error lines flash, counts of errors / warnings / successes in the header, one-click copy, and a soft sound when an error or success line arrives.
+- **Lighter in the background:** decorative pulses, glows and shimmers pause while Dial is not the front window (meters keep moving), and the sidebar fits itself in about 5 layout passes instead of up to 20.
+- **AirPlay outputs work with Dial running** (a MacBook Pro as an AirPlay receiver, a HomePod, an Apple TV). macOS can’t send AirPlay through Dial’s private audio path, so the app was silenced and nothing reached the receiver. Apps playing to AirPlay are now left to macOS (Dial’s per-app effects are off for them), and an AirPlay receiver in a multi-output list no longer stops the other outputs.
+- **Live streams no longer drop after about an hour.** Nothing kept the Mac awake while live, so an idle Mac went to sleep on its timer and the stream dropped and reconnected. While live or with Dial Camera on, Dial now keeps the Mac from idle sleep (the display can still turn off).
+- **Beauty stays on the stream while your face is hidden for a moment.** A hand in front of the face or a fast turn dropped skin smoothing to a quarter, so the plain camera showed through; it now keeps most of it until the face is found again. While live, a frame the GPU misses keeps the last beauty frame for up to 5 s (was 1.5 s).
+
 ## Dial 1.0.29 — 06 Nov 2026
 
 - **Live stream keeps the beauty look.** When the Mac’s graphics engine resets (sleep, heavy load, Dial in the background), Dial waited 3 s before rebuilding the beauty pass and sent the plain camera meanwhile — and after three resets beauty stayed off. It now rebuilds within a few frames, keeps trying, and the stream holds the last beauty frame instead of showing the plain camera.
