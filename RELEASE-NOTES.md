@@ -2,6 +2,10 @@
 
 Newest first. Downloads: https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest · https://ipconfig.co.network/dial
 
+## Dial 1.0.33 — 06 Nov 2026
+
+- **Boost up to 2000M % (2,000,000,000 %, +146 dB) with Pro**, up from 20M %. The popover gets a sixth chevron (teal, with its own sound and drawn scene), the menus offer 200M % and 2000M %, and typed volumes, dial:// links and hotkeys all go that high. Dial’s boost guard still keeps it from clipping, but levels like this can damage speakers and hearing — turn it up slowly.
+
 ## Dial 1.0.32 — 06 Nov 2026
 
 - **Export as .md or .txt** next to CSV in every Owner panel table. Crash reports come out as a readable report: one section per crash with its kind, version, system and hits, then where it happened, the whole stack and the symbolise command.
