@@ -1,14 +1,14 @@
 {
-  "version": "1.0.27",
-  "notes": "## Dial 1.0.27 — 05 Nov 2026\n\n- **Dispatch: Install works when Dial is opened from the Finder.** It now finds Rust and Pour through your login shell, installs Rust with Pour when it is missing, and shows why if an install does not finish.\n\n### Install\n\nDial is a Mac app (Apple silicon — M1 and later). One download: `Dial_<version>_aarch64.dmg`.\n\n- **With Pour:** `curl -fsSL https://ipconfig.co.network/pour/install | sh` then `pour install --cask dial`\n- **By hand:** open the DMG and drag Dial into Applications. First launch: `xattr -cr /Applications/Dial.app` (Dial is self-signed, not notarized).\n- Per-app volume and the equaliser need macOS 14.4 or later.\n- Earlier Windows, Linux, ChromeOS, FreeBSD and Intel Mac builds stay on the releases page but are no longer updated.",
-  "pub_date": "2026-11-05T05:43:25Z",
+  "version": "1.0.28",
+  "notes": "## Dial 1.0.28 — 06 Nov 2026\n\n- **Camera: no more trail of hands when you move.** Anti-flicker and noise reduction mixed half of the previous frame into every new one, so a moving hand left fading copies behind it. Both now leave moving parts of the picture alone and only smooth what is still; anti-flicker evens out brightness only.\n- **Menu-bar popover: big boosts are readable.** The slider’s knob sat on top of the number (200M %); the slider now stays in its own space and the number is larger.\n- **Dispatch tab scrolls again.** Its status check ran on the app’s main thread and froze the window every 3 s; it now runs in the background, reads the network links at most every 10 s and pauses while Dial is hidden.\n- **Updates stop asking for the administrator password.** A Dial.app owned by the system made every update ask “allow administrator access for a script started by Dial”. Dial now gives the app to you once — silently when the Dial helper is installed, otherwise with one last prompt — and every later update installs without asking.\n\n### Install\n\nDial is a Mac app (Apple silicon — M1 and later). One download: `Dial_<version>_aarch64.dmg`.\n\n- **With Pour:** `curl -fsSL https://ipconfig.co.network/pour/install | sh` then `pour install --cask dial`\n- **By hand:** open the DMG and drag Dial into Applications. First launch: `xattr -cr /Applications/Dial.app` (Dial is self-signed, not notarized).\n- Per-app volume and the equaliser need macOS 14.4 or later.\n- Earlier Windows, Linux, ChromeOS, FreeBSD and Intel Mac builds stay on the releases page but are no longer updated.",
+  "pub_date": "2026-11-06T01:29:00Z",
   "platforms": {
     "darwin-aarch64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUSUVLMDNkb2V5SDJwMkdFczhLMUpSbjBYc3lvdFNJeEFXY0NzR2VsT2gyQmxqV1E5MTVXdmt2YzhjQWVDdVVnZXN5eitJN0ZjMDRiTU8rTktIQ0hsRlNBMHNhcUdZSGd3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzODU3MzYwCWZpbGU6RGlhbC5hcHAudGFyLmd6Cm45dzl3WHBPYmlGakFHMjZVaFgyM1F2dzhTUHNva1JjUHc4ZUt1TWFCT096ait4TWtoYjZZZkxBd3cxbC91akhsVW9tL1BhaFZIa2Z0d09lV0pPRUFBPT0K",
-      "url": "https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.27/Dial_aarch64.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUSUVLMDNkb2V5SDc4bVJTNkU0Rnl6K2tuYUtYVFhWQm5IZ1ZtT2NiQ2liRmtxTVU1a29FVFNFUnY1MVZQZWlURXNsSFI0Z0xHZjBYT1VTYWVmSzBBMk5OVHJQYks1V0E4PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzOTI4NDk5CWZpbGU6RGlhbC5hcHAudGFyLmd6CjBPZm0zQVlkaVhxQ0J0QkFBMG13WTVDcDZmek5aeXRYSDRFQlJ5d1lZNW9heGJnYVQvY0Y3NTJlUlhjZm9uVDdsS2tpTVRxektNL0wzY3E4N29uekJnPT0K",
+      "url": "https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.28/Dial_aarch64.app.tar.gz"
     }
   },
   "downloads": {
-    "mac_arm": "Dial_1.0.27_aarch64.dmg"
+    "mac_arm": "Dial_1.0.28_aarch64.dmg"
   }
 }
