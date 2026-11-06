@@ -2,6 +2,11 @@
 
 Newest first. Downloads: https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest · https://ipconfig.co.network/dial
 
+## Dial 1.0.29 — 06 Nov 2026
+
+- **Live stream keeps the beauty look.** When the Mac’s graphics engine resets (sleep, heavy load, Dial in the background), Dial waited 3 s before rebuilding the beauty pass and sent the plain camera meanwhile — and after three resets beauty stayed off. It now rebuilds within a few frames, keeps trying, and the stream holds the last beauty frame instead of showing the plain camera.
+- **No more password prompts while Dial works.** Fan changes and Auto Boost, Low Power Mode, freeing memory, the Time Machine boost and the update hand-over each asked for the administrator password on their own. Now every one of them goes through the Dial helper: the first time one is needed Dial installs the helper (one password, once), and after that nothing asks again. If you cancel, Dial does not ask again until it restarts.
+
 ## Dial 1.0.28 — 06 Nov 2026
 
 - **Camera: no more trail of hands when you move.** Anti-flicker and noise reduction mixed half of the previous frame into every new one, so a moving hand left fading copies behind it. Both now leave moving parts of the picture alone and only smooth what is still; anti-flicker evens out brightness only.
