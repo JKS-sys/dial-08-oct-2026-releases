@@ -1,14 +1,14 @@
 {
-  "version": "1.0.33",
-  "notes": "## Dial 1.0.33 — 06 Nov 2026\n\n- **Boost up to 2000M % (2,000,000,000 %, +146 dB) with Pro**, up from 20M %. The popover gets a sixth chevron (teal, with its own sound and drawn scene), the menus offer 200M % and 2000M %, and typed volumes, dial:// links and hotkeys all go that high. Dial’s boost guard still keeps it from clipping, but levels like this can damage speakers and hearing — turn it up slowly.\n\n### Install\n\nDial is a Mac app (Apple silicon — M1 and later). One download: `Dial_<version>_aarch64.dmg`.\n\n- **With Pour:** `curl -fsSL https://ipconfig.co.network/pour/install | sh` then `pour install --cask dial`\n- **By hand:** open the DMG and drag Dial into Applications. First launch: `xattr -cr /Applications/Dial.app` (Dial is self-signed, not notarized).\n- Per-app volume and the equaliser need macOS 14.4 or later.\n- Earlier Windows, Linux, ChromeOS, FreeBSD and Intel Mac builds stay on the releases page but are no longer updated.",
-  "pub_date": "2026-11-06T13:49:47Z",
+  "version": "1.0.34",
+  "notes": "## Dial 1.0.34 — 08 Nov 2026\n\n- **Crash reports and the Dispatch install log use the new log box:** numbered, coloured lines with error / warning / success marks, file:line positions in green, links, paths, numbers and each kind of bracket in its own colour, and one-click copy.\n- **2000M % boosts really play at 2000M %.** The sound engine still capped every app at 20M % (×200 000), so a 2000M % boost quietly dropped to 20M %; the menu-bar menu and the popover’s fallback list also stopped at 20M %. All of them now go to 2000M %, and a test keeps the engine, the app and the menus on the same limit.\n\n### Install\n\nDial is a Mac app (Apple silicon — M1 and later). One download: `Dial_<version>_aarch64.dmg`.\n\n- **With Pour:** `curl -fsSL https://ipconfig.co.network/pour/install | sh` then `pour install --cask dial`\n- **By hand:** open the DMG and drag Dial into Applications. First launch: `xattr -cr /Applications/Dial.app` (Dial is self-signed, not notarized).\n- Per-app volume and the equaliser need macOS 14.4 or later.\n- Earlier Windows, Linux, ChromeOS, FreeBSD and Intel Mac builds stay on the releases page but are no longer updated.",
+  "pub_date": "2026-11-08T15:16:34Z",
   "platforms": {
     "darwin-aarch64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUSUVLMDNkb2V5SC9QNWZHWmsrMkZRVldyMTZkSFB3SFVHT3luSXlsajN6czNDb1RQamg2UVZzZUZFOEVMSmk2b05HK0dvN2d0ZzA1VlFZbXQ0bE5OdCs5bUF0SGhQV1FBPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzOTcyOTM2CWZpbGU6RGlhbC5hcHAudGFyLmd6ClkzKzB6eUVMSkd0NjRoRDRHTmR0RWdwRndCVHhWMlJ2ZTN4VFFZWkR1a0NzS2o1c1pvdXRjb0NmY0o5NUx0Rm9IdDVQc3I4T1l1SEN5UTFMZnl1YkFnPT0K",
-      "url": "https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.33/Dial_aarch64.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUSUVLMDNkb2V5SHd1eDgzV3hteVR0RjNrNmtlSit3UDA4RXFsYktxc3ZNWGVqQy9nNThMNzgvbnlueUZmYVJVSDgwYW5BTGhnMExoclAvcC80OWV5ajE2TlBER3RneHc4PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk0MTUwOTU0CWZpbGU6RGlhbC5hcHAudGFyLmd6CnBxa0xIN3k5YjVPbFhaNHhhRTlWeGtYUTlhZjdKSEdKSkhUQXZVK3NiUFg1TnJvZFNFZDVrU3d2NFFvbU1WWXNSL3hkZ2EvQUF0UWt4ZlpUYko1bkJBPT0K",
+      "url": "https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/download/v1.0.34/Dial_aarch64.app.tar.gz"
     }
   },
   "downloads": {
-    "mac_arm": "Dial_1.0.33_aarch64.dmg"
+    "mac_arm": "Dial_1.0.34_aarch64.dmg"
   }
 }
