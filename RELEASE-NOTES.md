@@ -2,6 +2,11 @@
 
 Newest first. Downloads: https://github.com/JKS-sys/dial-08-oct-2026-releases/releases/latest · https://ipconfig.co.network/dial
 
+## Dial 1.0.34 — 08 Nov 2026
+
+- **Crash reports and the Dispatch install log use the new log box:** numbered, coloured lines with error / warning / success marks, file:line positions in green, links, paths, numbers and each kind of bracket in its own colour, and one-click copy.
+- **2000M % boosts really play at 2000M %.** The sound engine still capped every app at 20M % (×200 000), so a 2000M % boost quietly dropped to 20M %; the menu-bar menu and the popover’s fallback list also stopped at 20M %. All of them now go to 2000M %, and a test keeps the engine, the app and the menus on the same limit.
+
 ## Dial 1.0.33 — 06 Nov 2026
 
 - **Boost up to 2000M % (2,000,000,000 %, +146 dB) with Pro**, up from 20M %. The popover gets a sixth chevron (teal, with its own sound and drawn scene), the menus offer 200M % and 2000M %, and typed volumes, dial:// links and hotkeys all go that high. Dial’s boost guard still keeps it from clipping, but levels like this can damage speakers and hearing — turn it up slowly.
